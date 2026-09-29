@@ -308,6 +308,14 @@
           <a class="btn" href="${quoteUrl(product)}">Solicitar orçamento <span class="arrow">${icon('arrow')}</span></a>
           <a class="btn btn--whatsapp" data-whatsapp data-whatsapp-message="${esc(waMessage)}">${icon('whatsapp')} WhatsApp</a>
         </div>
+        <div class="product__terms">
+          <ul>
+            <li>${icon('wallet')}<span><strong>50% de entrada</strong> (pode ser paga na entrega) e o restante no boleto parcelado</span></li>
+            <li>${icon('truck')}<span><strong>Frete grátis</strong> até 300 km da indústria (sentido Sudeste). Acima disso, frete por conta do comprador</span></li>
+            <li>${icon('alert')}<span>Não virar de ponta-cabeça, não desmontar e não abrir. Receber desmontado implica perda da garantia</span></li>
+          </ul>
+          <a href="${window.Maquiminas.url('pages/condicoes.html')}">Ver todas as condições e políticas ${icon('arrow')}</a>
+        </div>
         <div class="product__services">
           <strong>Além do equipamento</strong>
           <p>Frete, montagem, desmontagem e instalação podem ser avaliados no seu orçamento, conforme disponibilidade e destino.</p>

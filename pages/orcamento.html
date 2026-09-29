@@ -39,6 +39,7 @@
           <li><a class="nav__link" href="../index.html">Início</a></li>
           <li><a class="nav__link" href="equipamentos.html">Equipamentos</a></li>
           <li><a class="nav__link" href="solucoes.html">Soluções</a></li>
+          <li><a class="nav__link" href="condicoes.html">Condições</a></li>
           <li><a class="nav__link" href="sobre.html">Sobre Nós</a></li>
           <li><a class="nav__link" href="contato.html">Contato</a></li>
         </ul>
@@ -129,6 +130,10 @@
               <label for="o-mensagem">Mensagem <span class="opt">(opcional)</span></label>
               <textarea class="textarea" id="o-mensagem" name="mensagem" maxlength="2000" placeholder="Capacidade, produção desejada, voltagem, prazo ou outras informações importantes."></textarea>
             </div>
+            <div class="field field--full field--accept">
+              <label class="check check--accept"><input type="checkbox" id="o-aceite" name="aceite" value="Sim" required data-validate data-msg-required="Para continuar, confirme que leu as condições e políticas." aria-describedby="o-aceite-err"><span>Li e concordo com as <a href="condicoes.html" target="_blank" rel="noopener">condições e políticas</a> de pagamento, frete, recebimento, garantia e manuseio.</span></label>
+              <p class="field__error" id="o-aceite-err"></p>
+            </div>
           </div>
           <div class="hp" aria-hidden="true"><label for="o-website">Não preencha</label><input id="o-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="form-foot">
@@ -150,9 +155,15 @@
               <li>Você recebe a proposta com as condições.</li>
             </ol>
           </div>
-          <div class="aside-card">
-            <h3>Transporte</h3>
-            <p>Frete grátis em um raio de 300 km da indústria, em Rosário da Limeira (MG), no sentido Sudeste. Nos demais destinos, o valor e o prazo do frete dependem de destino, peso, dimensões e quantidade, e são informados após a cotação.</p>
+          <div class="aside-card aside-card--terms">
+            <h3>Condições Maquiminas</h3>
+            <ul class="terms-mini">
+              <li><strong>50% de entrada</strong>, que pode ser paga na entrega, e o restante no boleto parcelado.</li>
+              <li><strong>Frete grátis</strong> até 300 km da indústria, em Rosário da Limeira (MG), no sentido Sudeste. Acima disso, frete por conta do comprador.</li>
+              <li>Descarga e espaço de passagem da máquina por conta do comprador.</li>
+              <li>Receber desmontado implica <strong>perda da garantia</strong>.</li>
+            </ul>
+            <a class="link-arrow" href="condicoes.html">Ver condições e políticas <span data-icon="arrow"></span></a>
           </div>
           <div class="aside-card">
             <h3>Prefere conversar?</h3>
@@ -179,6 +190,7 @@
             <li><a href="../index.html">Início</a></li>
             <li><a href="equipamentos.html">Equipamentos</a></li>
             <li><a href="solucoes.html">Soluções</a></li>
+            <li><a href="condicoes.html">Condições e políticas</a></li>
             <li><a href="sobre.html">Sobre Nós</a></li>
             <li><a href="contato.html">Contato</a></li>
             <li><a href="orcamento.html">Solicitar orçamento</a></li>

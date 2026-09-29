@@ -19,7 +19,7 @@
   function validateField(input) {
     const field = input.closest('.field');
     if (!field) return true;
-    const value = input.value.trim();
+    const value = input.type === 'checkbox' ? (input.checked ? input.value : '') : input.value.trim();
     let message = '';
 
     if (input.required && !value) message = input.dataset.msgRequired || 'Preencha este campo.';
@@ -86,11 +86,11 @@
       });
     });
 
-    form.querySelectorAll('.input, .textarea, select').forEach((input) => {
+    form.querySelectorAll('.input, .textarea, select, [data-validate]').forEach((input) => {
       input.addEventListener('blur', () => {
         if (form.dataset.submitted) validateField(input);
       });
-      input.addEventListener('input', () => {
+      input.addEventListener(input.type === 'checkbox' ? 'change' : 'input', () => {
         if (input.closest('.field.has-error')) validateField(input);
       });
     });
@@ -103,7 +103,7 @@
 
       if (form.querySelector('[name="website"]')?.value) return; // honeypot
 
-      const inputs = [...form.querySelectorAll('.input, .textarea, select')];
+      const inputs = [...form.querySelectorAll('.input, .textarea, select, [data-validate]')];
       const invalid = inputs.filter((input) => !validateField(input));
       if (invalid.length) {
         showStatus(form, 'error', 'Revise os campos destacados para continuar.', false);

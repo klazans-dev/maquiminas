@@ -24,7 +24,8 @@
     catalogo: () => ({ label: 'Encontrar um equipamento', href: url('pages/equipamentos.html'), icon: 'search' }),
     orcamento: () => ({ label: 'Solicitar orçamento', href: url('pages/orcamento.html'), icon: 'doc' }),
     especialista: () => ({ label: 'Falar com um especialista', href: specialistUrl(), icon: 'headset', external: wa.isConfigured() }),
-    cliente: () => ({ label: 'Acessar Área do Cliente', href: config.areaCliente, icon: 'user', external: true })
+    cliente: () => ({ label: 'Acessar Área do Cliente', href: config.areaCliente, icon: 'user', external: true }),
+    condicoes: () => ({ label: 'Condições de pagamento e políticas', href: url('pages/condicoes.html'), icon: 'wallet' })
   };
 
   const fab = document.createElement('button');
@@ -90,7 +91,7 @@
     if (started) return;
     started = true;
     addMessage('Olá! Sou a AXIA, assistente da Maquiminas. Posso ajudar você a encontrar um equipamento, solicitar um orçamento ou falar com um especialista.', 'axia');
-    addActions(['catalogo', 'orcamento', 'especialista', 'cliente']);
+    addActions(['catalogo', 'orcamento', 'condicoes', 'especialista', 'cliente']);
   }
 
   /* ---------- Saudação automática (uma vez por sessão) ---------- */

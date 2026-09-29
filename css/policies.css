@@ -1,0 +1,200 @@
+/* ==========================================================================
+   Condições e políticas
+   ========================================================================== */
+.policy-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+.policy-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--c-line-dark);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.policy-nav a svg { width: 17px; height: 17px; color: var(--c-yellow); }
+.policy-nav a:hover { border-color: var(--c-yellow); background: rgba(255, 194, 14, 0.08); }
+
+/* ---------- Pagamento ---------- */
+.pay {
+  display: grid;
+  gap: clamp(28px, 4vw, 44px);
+  padding: clamp(28px, 5vw, 56px);
+  border-radius: var(--radius);
+  background: var(--c-yellow);
+  color: var(--c-on-yellow);
+}
+.pay__intro { display: grid; gap: 16px; max-width: 820px; }
+.pay__badge {
+  justify-self: start;
+  padding: 7px 12px;
+  border-radius: 2px;
+  background: var(--c-ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.pay h2 { color: var(--c-on-yellow); }
+.pay__big { font-size: 1.5em; line-height: 0.8; }
+.pay__intro p { font-size: clamp(1.05rem, 1.5vw, 1.25rem); font-weight: 500; }
+.pay__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.pay__steps li {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--c-text);
+}
+.pay__steps li > span[data-icon] { width: 36px; height: 36px; color: var(--c-accent); }
+.pay__steps li > span[data-icon] svg { width: 100%; height: 100%; }
+.pay__num {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-family: var(--f-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: #d6dfeb;
+}
+.pay__steps h3 { font-family: var(--f-display); font-size: 24px; font-weight: 700; text-transform: uppercase; line-height: 1.05; }
+.pay__steps p { font-size: 15px; color: var(--c-muted); }
+.pay__note { font-size: 14px; font-weight: 500; }
+
+/* ---------- Frete ---------- */
+.ship {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.ship__card {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  justify-items: start;
+  padding: clamp(26px, 4vw, 40px);
+  border: 1px solid var(--c-line);
+  border-top: 4px solid var(--c-steel);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.ship__card--free { border-top-color: var(--c-yellow); }
+.ship__tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-accent); }
+.ship__card h3 { font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1; color: var(--c-text); }
+.ship__card--free h3 { background: linear-gradient(transparent 60%, var(--c-yellow) 60%, var(--c-yellow) 90%, transparent 90%); }
+.ship__card p { color: var(--c-muted); max-width: 46ch; }
+
+/* ---------- Recebimento ---------- */
+.duty {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.duty__item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: clamp(24px, 3.5vw, 36px);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+}
+.duty__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border-radius: var(--radius);
+  background: var(--c-ink);
+  color: var(--c-yellow);
+}
+.duty__icon svg { width: 28px; height: 28px; }
+.duty__item h3 { font-family: var(--f-display); font-size: 24px; font-weight: 700; text-transform: uppercase; line-height: 1.05; margin-bottom: 8px; }
+.duty__item p { color: var(--c-muted); }
+
+/* ---------- Garantia ---------- */
+.warn {
+  display: flex;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: flex-start;
+  padding: clamp(26px, 4.5vw, 52px);
+  border: 1px solid #f2c2bb;
+  border-left: 6px solid var(--c-error);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.warn__icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex: none;
+  border-radius: 50%;
+  background: #fdf0ee;
+  color: var(--c-error);
+}
+.warn__icon svg { width: 32px; height: 32px; }
+.warn .eyebrow { color: var(--c-error); }
+.warn h2 { margin: 12px 0 10px; color: var(--c-text); }
+.warn p { font-size: clamp(1.02rem, 1.3vw, 1.15rem); color: var(--c-muted); }
+.warn strong { color: var(--c-error); }
+
+/* ---------- Manuseio ---------- */
+.rules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.rule {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  align-content: start;
+  padding: clamp(28px, 4vw, 44px) 24px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.rule__icon { width: 96px; height: 96px; color: var(--c-error); }
+.rule__icon svg { width: 100%; height: 100%; stroke-width: 1.4; }
+.rule h3 { font-family: var(--f-display); font-size: clamp(1.5rem, 2.2vw, 1.9rem); font-weight: 700; text-transform: uppercase; line-height: 1.05; }
+.rule p { color: var(--c-muted); max-width: 30ch; }
+
+/* ---------- Resumo ---------- */
+.summary {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 24px clamp(32px, 6vw, 88px);
+  align-items: start;
+}
+.summary__list { display: grid; gap: 14px; }
+.summary__list li { display: flex; gap: 12px; color: var(--c-text-dark); }
+.summary__list svg { width: 20px; height: 20px; flex: none; margin-top: 2px; color: var(--c-yellow); }
+.summary .btn-row { grid-column: 2; }
+
+@media (max-width: 900px) {
+  .pay__steps, .ship, .duty, .rules, .summary { grid-template-columns: minmax(0, 1fr); }
+  .summary .btn-row { grid-column: auto; }
+}
+@media (max-width: 560px) {
+  .duty__item, .warn { flex-direction: column; }
+  .rule__icon { width: 80px; height: 80px; }
+}

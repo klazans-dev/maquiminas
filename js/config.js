@@ -60,6 +60,21 @@ const MAQUIMINAS_CONFIG = Object.freeze({
   }),
 
   /**
+   * Condições comerciais oficiais (exibidas na página de Condições e usadas pela AXIA).
+   * Detalhes como número de parcelas e datas são definidos em cada orçamento.
+   */
+  condicoes: Object.freeze({
+    entradaPercentual: 50,
+    restante: 'boleto parcelado',
+    entradaNaEntrega: true,
+    freteForaDoRaio: 'por conta do comprador',
+    descargaPorContaDoComprador: true,
+    acessoPorContaDoComprador: true,
+    desmontadoPerdeGarantia: true,
+    regrasManuseio: Object.freeze(['Não virar de ponta-cabeça', 'Não desmontar', 'Não abrir'])
+  }),
+
+  /**
    * Mapa de atendimento (home).
    * - industria: localização da fábrica (marcador no mapa).
    * - entregaEstados: 'todos' ou lista de UFs atendidas. Ex.: ['MG', 'RJ'].

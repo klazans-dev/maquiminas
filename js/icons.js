@@ -34,7 +34,15 @@
     chat: s('<path d="M4 5h16v11H9l-5 4z"/>'),
     grid: s('<rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/>'),
     doc: s('<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>'),
-    route: s('<circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H16a3 3 0 000-6H8a3 3 0 010-6h7.5"/>')
+    route: s('<circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H16a3 3 0 000-6H8a3 3 0 010-6h7.5"/>'),
+    wallet: s('<path d="M4 7h14a2 2 0 012 2v9a2 2 0 01-2 2H5a1 1 0 01-1-1z"/><path d="M4 7l11-3v3M16 13.5h.01"/>'),
+    barcode: s('<path d="M4 6v12M7 6v12M10 6v12M14 6v12M16 6v12M20 6v12"/>'),
+    alert: s('<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h0"/>'),
+    door: s('<path d="M5 21V4h10v17M15 6h4v15M3 21h18"/><path d="M12 12h.01"/>'),
+    dolly: s('<path d="M5 3h2l3 14"/><circle cx="11" cy="19" r="2"/><path d="M13 18l8-2"/><rect x="11" y="7" width="8" height="7" transform="rotate(-12 15 10.5)"/>'),
+    'no-flip': s('<circle cx="12" cy="12" r="10"/><path d="M5 5l14 14"/><rect x="8.5" y="11.5" width="7" height="6" rx="0.5"/><path d="M7.5 10a5 5 0 019 0"/><path d="M16.5 10l.4-2.3M16.5 10l-2.3-.5"/>'),
+    'no-disassemble': s('<circle cx="12" cy="12" r="10"/><path d="M5 5l14 14"/><path d="M14.5 7.5a2.5 2.5 0 00-3.3 3.1L7.5 14.3l1.9 1.9 3.7-3.7a2.5 2.5 0 003.1-3.3l-1.5 1.5-1.4-.4-.4-1.4z"/>'),
+    'no-open': s('<circle cx="12" cy="12" r="10"/><path d="M5 5l14 14"/><path d="M7.5 11h9v6h-9z"/><path d="M7.5 11l1.5-3.5h6L16.5 11"/>')
   };
 
   function render(root = document) {

@@ -320,6 +320,20 @@
 .commercial dd { margin: 6px 0 0; font-weight: 600; }
 
 .product__ctas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.product__terms {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-left: 4px solid var(--c-yellow);
+  background: #fffaeb;
+  border-radius: var(--radius);
+}
+.product__terms ul { display: grid; gap: 10px; }
+.product__terms li { display: flex; gap: 10px; font-size: 14px; line-height: 1.45; color: var(--c-muted); }
+.product__terms li strong { color: var(--c-text); }
+.product__terms li svg { width: 18px; height: 18px; flex: none; margin-top: 1px; color: var(--c-on-yellow); }
+.product__terms a { display: inline-flex; align-items: center; gap: 6px; justify-self: start; font-size: 13px; font-weight: 600; color: var(--c-accent); border-bottom: 1px solid currentColor; }
+.product__terms a svg { width: 14px; height: 14px; }
 .product__services {
   display: grid;
   gap: 10px;

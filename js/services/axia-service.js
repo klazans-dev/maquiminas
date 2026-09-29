@@ -71,6 +71,40 @@
     return ['ATENDIMENTO VIA SITE / AXIA', ...rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`)].join('\n');
   }
 
+  /**
+   * Respostas oficiais sobre condições e políticas, montadas a partir de
+   * MAQUIMINAS_CONFIG.condicoes / presenca (nunca texto livre inventado).
+   */
+  function policyAnswer(message) {
+    const c = config.condicoes;
+    const p = config.presenca || {};
+    if (!c) return null;
+    const text = String(message || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const raio = p.freteGratis ? p.freteGratis.raioKm : null;
+    const cidade = p.industria ? `${p.industria.cidade} (${p.industria.uf})` : 'nossa indústria';
+    const partes = [];
+
+    if (/pag|parcel|boleto|entrada|prazo de pag|forma de pag|condic/.test(text)) {
+      partes.push(`Pagamento: ${c.entradaPercentual}% de entrada e o restante no ${c.restante}.` +
+        (c.entradaNaEntrega ? ' A entrada pode ser paga na entrega.' : '') +
+        ' O número de parcelas é definido no orçamento.');
+    }
+    if (/frete|entrega|envio|transport|km|distancia/.test(text) && raio) {
+      partes.push(`Frete: entregamos em todo o Brasil. Frete grátis em um raio de ${raio} km da indústria, em ${cidade}, no sentido ${p.freteGratis.regiao}. Acima disso, o frete é ${c.freteForaDoRaio}.`);
+    }
+    if (/descarg|caminhao|porta|espaco|passar|receb/.test(text)) {
+      partes.push('Recebimento: a retirada da máquina do caminhão e o espaço para ela passar até o local na loja são por conta do comprador.');
+    }
+    if (/garantia|desmont/.test(text) && c.desmontadoPerdeGarantia) {
+      partes.push('Garantia: se o comprador optar por receber o equipamento desmontado, a garantia é perdida.');
+    }
+    if (/virar|ponta|cabeca|abrir|manuse|regra|desmont/.test(text) && c.regrasManuseio.length) {
+      partes.push(`Regras de manuseio: ${c.regrasManuseio.join('; ')}.`);
+    }
+    if (!partes.length) return null;
+    return { texto: partes.join('\n\n'), acoes: ['condicoes', 'orcamento', 'especialista'] };
+  }
+
   function isOnline() {
     return config.axia.ativo && config.axia.modo === 'online' && Boolean(config.api.axia);
   }
@@ -80,6 +114,8 @@
    * @returns {Promise<{texto: string, acoes: string[], intencao?: Object}>}
    */
   async function ask(message, history = []) {
+    const policy = policyAnswer(message);
+    if (policy) return policy;
     if (!isOnline()) {
       return {
         texto: 'A AXIA está em fase de preparação e ainda não responde automaticamente. ' +
@@ -101,5 +137,5 @@
     }
   }
 
-  window.AxiaService = Object.freeze({ RULES, TOOLS, FALLBACK_MESSAGE, createIntent, buildHandoff, isOnline, ask });
+  window.AxiaService = Object.freeze({ RULES, TOOLS, FALLBACK_MESSAGE, createIntent, buildHandoff, policyAnswer, isOnline, ask });
 })();

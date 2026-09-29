@@ -65,7 +65,8 @@
       ['Quantidade', lead.quantidade],
       ['Serviços', (lead.servicos || []).join(', ')],
       ['Assunto', lead.assunto],
-      ['Mensagem', lead.mensagem]
+      ['Mensagem', lead.mensagem],
+      ['Condições e políticas', lead.aceite ? 'Lidas e aceitas no site' : '']
     ];
     return [title, ...rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`)].join('\n');
   }

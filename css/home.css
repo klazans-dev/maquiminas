@@ -82,6 +82,42 @@
   text-transform: uppercase;
 }
 
+/* ---------- Payment bar ---------- */
+.paybar { background: var(--c-yellow); color: var(--c-on-yellow); }
+.paybar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding-block: 20px;
+}
+.paybar__badge {
+  flex: none;
+  padding: 6px 10px;
+  border-radius: 2px;
+  background: var(--c-ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.paybar__text { flex: 1 1 320px; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.45; }
+.paybar__text strong { font-weight: 700; }
+.paybar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 3px;
+}
+.paybar__link svg { width: 16px; height: 16px; transition: transform 0.2s var(--ease); }
+.paybar__link:hover svg { transform: translateX(3px); }
+
 /* ---------- Categories ---------- */
 .cat-grid {
   display: grid;

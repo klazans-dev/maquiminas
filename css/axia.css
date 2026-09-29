@@ -208,6 +208,7 @@
   border-radius: 4px;
   font-size: 14px;
   line-height: 1.5;
+  white-space: pre-line;
   animation: msgIn 0.3s var(--ease);
 }
 .axia-msg--bot { align-self: flex-start; background: var(--c-white); border: 1px solid var(--c-line); }
