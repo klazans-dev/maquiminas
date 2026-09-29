@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipamentos | Maquiminas Equipamentos</title>
+  <meta name="description" content="Catálogo de equipamentos profissionais Maquiminas. Busque por categoria, veja detalhes e solicite um orçamento.">
+  <meta name="theme-color" content="#041d3f">
+  <link rel="icon" href="../assets/icons/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Maquiminas Equipamentos">
+  <meta property="og:title" content="Equipamentos | Maquiminas Equipamentos">
+  <meta property="og:description" content="Catálogo de equipamentos profissionais Maquiminas.">
+  <meta property="og:image" content="../assets/images/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/products.css">
+  <link rel="stylesheet" href="../css/axia.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="catalogo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Maquiminas Equipamentos — página inicial">
+        <img class="brand__logo" src="../assets/images/logo-maquiminas.webp" width="480" height="445" alt="Maquiminas Equipamentos">
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../index.html">Início</a></li>
+          <li><a class="nav__link" href="equipamentos.html" aria-current="page">Equipamentos</a></li>
+          <li><a class="nav__link" href="solucoes.html">Soluções</a></li>
+          <li><a class="nav__link" href="sobre.html">Sobre Nós</a></li>
+          <li><a class="nav__link" href="contato.html">Contato</a></li>
+        </ul>
+        <div class="nav__mobile-actions">
+          <a class="btn btn--whatsapp" href="contato.html#canais" data-whatsapp><span data-icon="whatsapp"></span>Falar pelo WhatsApp</a>
+          <a class="btn" href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener"><span data-icon="user"></span>Área do Cliente</a>
+        </div>
+      </nav>
+      <div class="header-actions">
+        <a class="header-wa" href="contato.html#canais" data-whatsapp><span data-icon="whatsapp"></span>WhatsApp</a>
+        <a class="btn btn--sm header-client" href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener"><span data-icon="user"></span>Área do Cliente</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu"><span></span></button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="page-hero blueprint">
+      <div class="container on-dark">
+        <ol class="breadcrumb" aria-label="Você está em">
+          <li><a href="../index.html">Início</a></li>
+          <li aria-current="page">Equipamentos</li>
+        </ol>
+        <h1 class="display h1" data-catalog-title>Equipamentos</h1>
+        <p class="lead" data-catalog-lead>Encontre o equipamento certo para a sua necessidade. Veja os detalhes e solicite uma proposta.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container catalog">
+        <aside class="filters" data-filters aria-label="Filtros do catálogo"></aside>
+
+        <div>
+          <form class="toolbar" role="search" data-search-form>
+            <div class="search">
+              <span data-icon="search"></span>
+              <label class="sr-only" for="catalog-search">Buscar equipamentos</label>
+              <input id="catalog-search" type="search" placeholder="Buscar por nome, marca, modelo ou aplicação" autocomplete="off">
+            </div>
+            <div>
+              <label class="sr-only" for="catalog-sort">Ordenar por</label>
+              <select id="catalog-sort" class="select">
+                <option value="relevancia">Relevância</option>
+                <option value="nome-asc">Nome (A–Z)</option>
+                <option value="nome-desc">Nome (Z–A)</option>
+                <option value="categoria">Categoria</option>
+              </select>
+            </div>
+          </form>
+
+          <div class="chips" data-chips role="group" aria-label="Categorias"></div>
+
+          <div class="results-bar">
+            <p data-results-count aria-live="polite"></p>
+            <button type="button" data-clear-filters hidden>Limpar filtros</button>
+          </div>
+
+          <p class="demo-notice" data-demo-notice hidden>
+            <span data-icon="info"></span>
+            Itens marcados como "Demonstrativo" ilustram o layout do catálogo e serão substituídos pelos equipamentos oficiais da Maquiminas.
+          </p>
+
+          <div class="product-grid" data-catalog-grid>
+            <div class="skeleton" style="aspect-ratio:3/4"></div>
+            <div class="skeleton" style="aspect-ratio:3/4"></div>
+            <div class="skeleton" style="aspect-ratio:3/4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Maquiminas Equipamentos — página inicial">
+            <img class="brand__logo brand__logo--footer" src="../assets/images/logo-maquiminas.webp" width="480" height="445" alt="Maquiminas Equipamentos">
+          </a>
+          <p>Equipamentos profissionais com orientação, logística, serviços e atendimento personalizado.</p>
+        </div>
+        <nav class="footer-col" aria-label="Navegação do rodapé">
+          <h2>Navegação</h2>
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="equipamentos.html">Equipamentos</a></li>
+            <li><a href="solucoes.html">Soluções</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="orcamento.html">Solicitar orçamento</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Equipamentos</h2>
+          <ul>
+            <li><a href="equipamentos.html?categoria=panificacao">Panificação</a></li>
+            <li><a href="equipamentos.html?categoria=confeitaria">Confeitaria</a></li>
+            <li><a href="equipamentos.html?categoria=gastronomia">Gastronomia</a></li>
+            <li><a href="equipamentos.html?categoria=refrigeracao">Refrigeração</a></li>
+            <li><a href="equipamentos.html?categoria=coccao">Cocção</a></li>
+            <li><a href="equipamentos.html">Ver todos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Soluções</h2>
+          <ul>
+            <li><a href="solucoes.html#venda">Venda de equipamentos</a></li>
+            <li><a href="solucoes.html#orientacao">Orientação técnica</a></li>
+            <li><a href="solucoes.html#montagem">Montagem e desmontagem</a></li>
+            <li><a href="solucoes.html#instalacao">Instalação</a></li>
+            <li><a href="solucoes.html#logistica">Logística</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h2>Contato</h2>
+          <a href="contato.html#canais" data-whatsapp><span data-icon="whatsapp"></span><span data-whatsapp-number>WhatsApp</span></a>
+          <a data-config-link="email" hidden><span data-icon="mail"></span><span data-label></span></a>
+          <a data-config-link="telefone" hidden><span data-icon="phone"></span><span data-label></span></a>
+          <a href="https://www.instagram.com/maquiminasequipamentos/" data-config-link="instagram" target="_blank" rel="noopener"><span data-icon="instagram"></span>Instagram</a>
+          <a class="btn btn--sm" href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener"><span data-icon="user"></span>Área do Cliente</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> MAQUIMINAS EQUIPAMENTOS. Todos os direitos reservados.</p>
+        <a href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener">Área do Cliente</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/icons.js"></script>
+  <script src="../js/whatsapp.js"></script>
+  <script src="../js/data/categories.js"></script>
+  <script src="../js/data/products.js"></script>
+  <script src="../js/services/product-service.js"></script>
+  <script src="../js/services/axia-service.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/products.js"></script>
+  <script src="../js/axia.js"></script>
+</body>
+</html>

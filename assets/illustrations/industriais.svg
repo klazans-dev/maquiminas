@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <style>.b{fill:#0b2c5c;stroke:#9bb2d2;stroke-width:2}.l{stroke:#9bb2d2;stroke-width:2}.h{stroke:#d0ddef;stroke-width:2}.a{stroke:#ffc20e;stroke-width:2}.af{fill:#ffc20e}.d{stroke:#4d6a92;stroke-width:1.5;stroke-dasharray:4 4}</style>
+  <g transform="translate(118 104)">
+    <g class="b">
+      <rect x="-9" y="-50" width="18" height="16" rx="2"/>
+      <rect x="-9" y="-50" width="18" height="16" rx="2" transform="rotate(45)"/>
+      <rect x="-9" y="-50" width="18" height="16" rx="2" transform="rotate(90)"/>
+      <rect x="-9" y="-50" width="18" height="16" rx="2" transform="rotate(135)"/>
+      <rect x="-9" y="-50" width="18" height="16" rx="2" transform="rotate(180)"/>
+      <rect x="-9" y="-50" width="18" height="16" rx="2" transform="rotate(225)"/>
+      <rect x="-9" y="-50" width="18" height="16" rx="2" transform="rotate(270)"/>
+      <rect x="-9" y="-50" width="18" height="16" rx="2" transform="rotate(315)"/>
+    </g>
+    <circle class="b" r="38"/>
+    <circle class="a" r="14"/>
+    <circle class="af" r="4"/>
+  </g>
+  <rect class="b" x="236" y="70" width="80" height="64" rx="3"/>
+  <path class="l" d="M248 84v36M260 84v36M272 84v36M284 84v36"/>
+  <circle class="h" cx="302" cy="102" r="6"/>
+  <path class="l" d="M276 134v42"/>
+  <rect class="b" x="60" y="184" width="100" height="30" rx="3"/>
+  <rect class="b" x="224" y="184" width="70" height="30" rx="3"/>
+  <circle class="b" cx="84" cy="236" r="18"/><circle class="b" cx="316" cy="236" r="18"/>
+  <circle class="a" cx="84" cy="236" r="5"/><circle class="a" cx="316" cy="236" r="5"/>
+  <path class="h" d="M84 218h232M84 254h232"/>
+  <path class="l" d="M110 254v18M290 254v18M200 254v18"/>
+  <path class="d" d="M60 286h280"/>
+</svg>

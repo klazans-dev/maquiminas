@@ -1,0 +1,286 @@
+/* ==========================================================================
+   Botões flutuantes (WhatsApp + AXIA) e painel da AXIA
+   ========================================================================== */
+.floating {
+  position: fixed;
+  right: clamp(16px, 2.5vw, 28px);
+  bottom: clamp(16px, 2.5vw, 28px);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.fab-wa {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1f7a4a;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(4, 29, 63, 0.22);
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.fab-wa svg { width: 28px; height: 28px; }
+.fab-wa:hover { background: #17603a; transform: translateY(-2px); }
+
+.fab-axia {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 18px 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: var(--c-ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 8px 24px rgba(4, 29, 63, 0.22);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.fab-axia:hover { transform: translateY(-2px); border-color: rgba(255, 194, 14, 0.7); }
+.fab-axia__dot {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--c-yellow);
+  color: var(--c-on-yellow);
+  font-family: var(--f-display);
+  font-size: 13px;
+  font-weight: 700;
+}
+.fab-axia[aria-expanded='true'] { opacity: 0; pointer-events: none; }
+
+/* ---------- Panel ---------- */
+.axia {
+  position: fixed;
+  right: clamp(16px, 2.5vw, 28px);
+  bottom: clamp(16px, 2.5vw, 28px);
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  width: min(390px, calc(100vw - 32px));
+  max-height: min(600px, calc(100svh - var(--header-h) - 32px));
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: 6px;
+  box-shadow: 0 24px 64px rgba(4, 29, 63, 0.28);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0s linear 0.25s;
+}
+.axia.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.axia__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 16px 20px;
+  background: var(--c-ink);
+  color: #fff;
+}
+.axia__avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--c-yellow);
+  color: var(--c-on-yellow);
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ---------- Saudação automática ---------- */
+.axia-greet {
+  position: relative;
+  width: min(340px, calc(100vw - 32px));
+  padding: 18px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-top: 3px solid var(--c-yellow);
+  border-radius: 6px;
+  box-shadow: 0 18px 48px rgba(4, 29, 63, 0.24);
+  color: var(--c-text);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.axia-greet.is-visible { opacity: 1; transform: none; }
+.axia-greet__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--c-muted);
+}
+.axia-greet__close:hover { background: var(--c-bg); color: var(--c-text); }
+.axia-greet__close svg { width: 16px; height: 16px; }
+.axia-greet__head { display: flex; gap: 12px; align-items: flex-start; padding-right: 28px; }
+.axia-greet__head p { font-size: 14px; line-height: 1.5; color: var(--c-muted); }
+.axia-greet__head strong { display: block; color: var(--c-text); font-size: 15px; }
+.axia-greet__opts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.axia-greet__opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.axia-greet__opt svg { width: 16px; height: 16px; flex: none; color: var(--c-accent); }
+.axia-greet__opt:hover { border-color: var(--c-accent); background: #f3f7fd; }
+.axia-greet__chat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--c-ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.axia-greet__chat svg { width: 16px; height: 16px; color: var(--c-yellow); }
+.axia-greet__chat:hover { background: var(--c-steel); }
+.axia__title { flex: 1; line-height: 1.2; }
+.axia__title strong { display: block; font-family: var(--f-display); font-size: 20px; letter-spacing: 0.1em; }
+.axia__title small { font-size: 12px; color: var(--c-muted-dark); }
+.axia__close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--c-line-dark);
+  border-radius: var(--radius);
+  background: transparent;
+  color: #fff;
+}
+.axia__close svg { width: 18px; height: 18px; }
+
+.axia__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  overflow-y: auto;
+  background: var(--c-bg);
+}
+.axia-msg {
+  max-width: 88%;
+  padding: 12px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  animation: msgIn 0.3s var(--ease);
+}
+.axia-msg--bot { align-self: flex-start; background: var(--c-white); border: 1px solid var(--c-line); }
+.axia-msg--user { align-self: flex-end; background: var(--c-ink); color: #fff; }
+@keyframes msgIn { from { opacity: 0; transform: translateY(6px); } }
+
+.axia__actions { display: grid; gap: 8px; }
+.axia-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  background: var(--c-white);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.axia-action svg { width: 16px; height: 16px; color: var(--c-muted); flex: none; }
+.axia-action:hover { border-color: var(--c-accent); color: var(--c-accent); }
+.axia-action:hover svg { color: var(--c-accent); }
+
+.axia__form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--c-line);
+  background: var(--c-white);
+}
+.axia__form input {
+  flex: 1;
+  min-width: 0;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  font-size: 15px;
+}
+.axia__form input:focus { outline: none; border-color: var(--c-text); }
+.axia__form button {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--c-accent);
+  color: #fff;
+}
+.axia__form button svg { width: 18px; height: 18px; }
+.axia__foot { padding: 0 16px 12px; background: var(--c-white); font-size: 11px; color: var(--c-muted); text-align: center; }
+
+@media (max-width: 560px) {
+  .axia-greet { padding: 14px; }
+  .axia-greet__head p { font-size: 13px; }
+  .axia-greet__opts { margin-top: 10px; gap: 6px; }
+  .axia-greet__opt { min-height: 42px; font-size: 12px; }
+  .axia-greet__chat { display: none; }
+  .fab-axia { width: 48px; padding: 0; justify-content: center; }
+  .fab-axia__label { display: none; }
+  .fab-axia__dot { width: 30px; height: 30px; }
+  .fab-wa { width: 52px; height: 52px; }
+  .axia {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 85svh;
+    border-radius: 10px 10px 0 0;
+  }
+}

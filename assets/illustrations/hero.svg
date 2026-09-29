@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <style>.b{fill:#0a2a57;stroke:#a3b9d8;stroke-width:2.5}.b2{fill:#0e3266;stroke:#a3b9d8;stroke-width:2}.l{stroke:#a3b9d8;stroke-width:2}.h{stroke:#e4edf8;stroke-width:2.5}.a{stroke:#ffc20e;stroke-width:2.5}.af{fill:#ffc20e}.d{stroke:#48648c;stroke-width:1.5;stroke-dasharray:5 5}.t{fill:#8fa7c7;font:600 14px/1 Arial,Helvetica,sans-serif;letter-spacing:2px}.c{fill:#041d3f;stroke:#ffc20e;stroke-width:2}</style>
+  <!-- base -->
+  <rect class="b" x="120" y="430" width="380" height="50" rx="5"/>
+  <path class="l" d="M140 452h340"/>
+  <rect class="b2" x="140" y="480" width="36" height="16" rx="3"/>
+  <rect class="b2" x="444" y="480" width="36" height="16" rx="3"/>
+  <!-- column -->
+  <rect class="b" x="382" y="120" width="104" height="310" rx="5"/>
+  <path class="l" d="M398 140v270"/>
+  <!-- head -->
+  <rect class="b" x="150" y="86" width="350" height="76" rx="8"/>
+  <path class="h" d="M176 110h140"/>
+  <path class="l" d="M176 132h90"/>
+  <!-- control panel -->
+  <rect class="b2" x="404" y="190" width="64" height="104" rx="3"/>
+  <rect class="af" x="416" y="204" width="40" height="16" rx="2"/>
+  <circle class="l" cx="424" cy="244" r="8"/>
+  <circle class="l" cx="448" cy="244" r="8"/>
+  <path class="l" d="M416 270h40M416 282h26"/>
+  <!-- bowl -->
+  <path class="b" d="M138 264h240l-22 164H160z"/>
+  <ellipse class="b" cx="258" cy="264" rx="120" ry="14"/>
+  <path class="l" d="M170 300h176M176 340h164M182 380h152"/>
+  <!-- spiral hook -->
+  <path class="a" d="M258 162v58c0 18 40 18 40 38s-40 20-40 40 38 20 38 40-38 20-38 40"/>
+  <circle class="af" cx="258" cy="168" r="6"/>
+  <!-- dimensions -->
+  <path class="d" d="M120 526h380M120 516v20M500 516v20"/>
+  <path class="d" d="M552 86v394M542 86h20M542 480h20"/>
+  <text class="t" x="296" y="552">A</text>
+  <text class="t" x="566" y="290">B</text>
+  <!-- callouts -->
+  <path class="d" d="M258 168L96 60"/>
+  <circle class="c" cx="84" cy="52" r="16"/><text class="t" x="79" y="57" style="fill:#ffc20e">1</text>
+  <path class="d" d="M468 212L600 150"/>
+  <circle class="c" cx="608" cy="146" r="16"/><text class="t" x="603" y="151" style="fill:#ffc20e">2</text>
+  <path class="d" d="M150 360L60 400"/>
+  <circle class="c" cx="48" cy="406" r="16"/><text class="t" x="43" y="411" style="fill:#ffc20e">3</text>
+</svg>

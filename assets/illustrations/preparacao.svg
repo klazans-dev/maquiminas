@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <style>.b{fill:#0b2c5c;stroke:#9bb2d2;stroke-width:2}.l{stroke:#9bb2d2;stroke-width:2}.h{stroke:#d0ddef;stroke-width:2}.a{stroke:#ffc20e;stroke-width:2}.af{fill:#ffc20e}.d{stroke:#4d6a92;stroke-width:1.5;stroke-dasharray:4 4}</style>
+  <rect class="b" x="212" y="52" width="34" height="56" rx="2"/>
+  <rect class="l" x="218" y="40" width="22" height="12" rx="2"/>
+  <rect class="b" x="140" y="100" width="124" height="16" rx="3"/>
+  <path class="b" d="M148 116h108l-6 88h-96z"/>
+  <path class="h" d="M166 128v64"/>
+  <path class="l" d="M202 120v70"/>
+  <path class="a" d="M176 160l26-8 26 8M176 176l26-8 26 8"/>
+  <path class="l" d="M256 132h18v52h-18"/>
+  <rect class="b" x="132" y="204" width="140" height="52" rx="4"/>
+  <circle class="af" cx="172" cy="230" r="6"/>
+  <circle class="l" cx="202" cy="230" r="6"/>
+  <rect class="l" x="222" y="222" width="32" height="16" rx="2"/>
+  <path class="l" d="M144 256v10M260 256v10"/>
+  <path class="d" d="M132 284h140M132 278v12M272 278v12"/>
+</svg>

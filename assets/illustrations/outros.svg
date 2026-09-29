@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <style>.b{fill:#0b2c5c;stroke:#9bb2d2;stroke-width:2}.l{stroke:#9bb2d2;stroke-width:2}.h{stroke:#d0ddef;stroke-width:2}.a{stroke:#ffc20e;stroke-width:2}.af{fill:#ffc20e}.d{stroke:#4d6a92;stroke-width:1.5;stroke-dasharray:4 4}</style>
+  <path class="b" d="M120 170l60-30 60 30-60 30z"/>
+  <path class="b" d="M120 170v60l60 30v-60z"/>
+  <path class="b" d="M240 170v60l-60 30v-60z"/>
+  <path class="h" d="M150 155l60 30"/>
+  <path class="b" d="M200 110l50-25 50 25-50 25z"/>
+  <path class="b" d="M200 110v50l50 25v-50z"/>
+  <path class="b" d="M300 110v50l-50 25v-50z"/>
+  <path class="l" d="M214 136l24 12M214 148l24 12"/>
+  <path class="b" d="M92 96l36-18 36 18-36 18z"/>
+  <path class="b" d="M92 96v36l36 18v-36z"/>
+  <path class="b" d="M164 96v36l-36 18v-36z"/>
+  <path class="a" d="M300 216h40M320 196v40"/>
+  <path class="d" d="M80 282h260"/>
+</svg>

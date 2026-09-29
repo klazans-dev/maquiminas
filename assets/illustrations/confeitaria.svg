@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <style>.b{fill:#0b2c5c;stroke:#9bb2d2;stroke-width:2}.l{stroke:#9bb2d2;stroke-width:2}.h{stroke:#d0ddef;stroke-width:2}.a{stroke:#ffc20e;stroke-width:2}.af{fill:#ffc20e}.d{stroke:#4d6a92;stroke-width:1.5;stroke-dasharray:4 4}</style>
+  <rect class="b" x="116" y="240" width="178" height="18" rx="3"/>
+  <rect class="b" x="132" y="100" width="54" height="140" rx="4"/>
+  <rect class="b" x="132" y="66" width="172" height="52" rx="14"/>
+  <path class="h" d="M150 82h70"/>
+  <circle class="af" cx="160" cy="138" r="5"/>
+  <path class="l" d="M152 156h16M152 164h16"/>
+  <path class="l" d="M186 196h14v-8h92v8"/>
+  <path class="b" d="M200 172h96l-10 62h-76z"/>
+  <ellipse class="b" cx="248" cy="172" rx="48" ry="7"/>
+  <path class="l" d="M248 118v18"/>
+  <path class="a" d="M248 136c-18 18-14 58 0 64 14-6 18-46 0-64zM248 136v64M238 146c-6 16-4 40 10 54M258 146c6 16 4 40-10 54"/>
+  <path class="d" d="M116 282h178M116 276v12M294 276v12"/>
+</svg>

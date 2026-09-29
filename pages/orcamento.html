@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitar Orçamento | Maquiminas Equipamentos</title>
+  <meta name="description" content="Solicite um orçamento de equipamento com a Maquiminas. Informe equipamento, quantidade, destino e serviços de interesse.">
+  <meta name="theme-color" content="#041d3f">
+  <link rel="icon" href="../assets/icons/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Maquiminas Equipamentos">
+  <meta property="og:title" content="Solicitar Orçamento | Maquiminas Equipamentos">
+  <meta property="og:description" content="Solicite um orçamento de equipamento com a Maquiminas.">
+  <meta property="og:image" content="../assets/images/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/axia.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="orcamento">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Maquiminas Equipamentos — página inicial">
+        <img class="brand__logo" src="../assets/images/logo-maquiminas.webp" width="480" height="445" alt="Maquiminas Equipamentos">
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../index.html">Início</a></li>
+          <li><a class="nav__link" href="equipamentos.html">Equipamentos</a></li>
+          <li><a class="nav__link" href="solucoes.html">Soluções</a></li>
+          <li><a class="nav__link" href="sobre.html">Sobre Nós</a></li>
+          <li><a class="nav__link" href="contato.html">Contato</a></li>
+        </ul>
+        <div class="nav__mobile-actions">
+          <a class="btn btn--whatsapp" href="contato.html#canais" data-whatsapp><span data-icon="whatsapp"></span>Falar pelo WhatsApp</a>
+          <a class="btn" href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener"><span data-icon="user"></span>Área do Cliente</a>
+        </div>
+      </nav>
+      <div class="header-actions">
+        <a class="header-wa" href="contato.html#canais" data-whatsapp><span data-icon="whatsapp"></span>WhatsApp</a>
+        <a class="btn btn--sm header-client" href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener"><span data-icon="user"></span>Área do Cliente</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu"><span></span></button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="page-hero blueprint">
+      <div class="container on-dark">
+        <ol class="breadcrumb" aria-label="Você está em">
+          <li><a href="../index.html">Início</a></li>
+          <li aria-current="page">Orçamento</li>
+        </ol>
+        <h1 class="display h1">Solicitar orçamento</h1>
+        <p class="lead">Conte o que a sua operação precisa. Nossa equipe analisa e retorna com uma proposta.</p>
+      </div>
+    </section>
+
+    <section class="section section--muted section--tight">
+      <div class="container form-layout">
+        <form class="form-card" data-lead-form="orcamento" aria-labelledby="form-title">
+          <div class="form-card__head">
+            <h2 id="form-title" class="display">Dados do orçamento</h2>
+            <p>Campos marcados com <span style="color:var(--c-accent)">*</span> são obrigatórios.</p>
+          </div>
+          <input type="hidden" name="produtoId">
+          <div class="form-grid">
+            <div class="field">
+              <label for="o-nome">Nome <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="o-nome" name="nome" type="text" autocomplete="name" required aria-describedby="o-nome-err">
+              <p class="field__error" id="o-nome-err"></p>
+            </div>
+            <div class="field">
+              <label for="o-empresa">Empresa <span class="opt">(opcional)</span></label>
+              <input class="input" id="o-empresa" name="empresa" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="o-whatsapp">WhatsApp <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="o-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required data-type="phone" aria-describedby="o-whatsapp-err">
+              <p class="field__error" id="o-whatsapp-err"></p>
+            </div>
+            <div class="field">
+              <label for="o-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="o-email" name="email" type="email" autocomplete="email" required aria-describedby="o-email-err">
+              <p class="field__error" id="o-email-err"></p>
+            </div>
+            <div class="field">
+              <label for="o-cidade">Cidade de entrega <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="o-cidade" name="cidade" type="text" autocomplete="address-level2" required aria-describedby="o-cidade-err">
+              <p class="field__error" id="o-cidade-err"></p>
+            </div>
+            <div class="field">
+              <label for="o-estado">Estado <span class="req" aria-hidden="true">*</span></label>
+              <select id="o-estado" name="estado" required data-uf autocomplete="address-level1" aria-describedby="o-estado-err" data-msg-required="Selecione o estado.">
+                <option value="">Selecione</option>
+              </select>
+              <p class="field__error" id="o-estado-err"></p>
+            </div>
+            <div class="field">
+              <label for="o-equipamento">Equipamento <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="o-equipamento" name="equipamento" type="text" required placeholder="Ex.: masseira, forno, refrigerador" aria-describedby="o-equipamento-err">
+              <p class="field__error" id="o-equipamento-err"></p>
+            </div>
+            <div class="field">
+              <label for="o-quantidade">Quantidade <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="o-quantidade" name="quantidade" type="number" min="1" step="1" value="1" inputmode="numeric" required aria-describedby="o-quantidade-err">
+              <p class="field__error" id="o-quantidade-err"></p>
+            </div>
+            <fieldset class="field field--full checks">
+              <legend>Serviços de interesse <span class="opt">(opcional)</span></legend>
+              <label class="check"><input type="checkbox" name="servicos" value="Frete">Frete</label>
+              <label class="check"><input type="checkbox" name="servicos" value="Montagem">Montagem</label>
+              <label class="check"><input type="checkbox" name="servicos" value="Desmontagem">Desmontagem</label>
+              <label class="check"><input type="checkbox" name="servicos" value="Instalação">Instalação</label>
+              <label class="check"><input type="checkbox" name="servicos" value="Orientação técnica">Orientação técnica</label>
+            </fieldset>
+            <div class="field field--full">
+              <label for="o-mensagem">Mensagem <span class="opt">(opcional)</span></label>
+              <textarea class="textarea" id="o-mensagem" name="mensagem" maxlength="2000" placeholder="Capacidade, produção desejada, voltagem, prazo ou outras informações importantes."></textarea>
+            </div>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="o-website">Não preencha</label><input id="o-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="form-foot">
+            <small>Ao enviar, você concorda em ser contatado pela equipe Maquiminas sobre a sua solicitação.</small>
+            <div class="form-actions">
+              <button class="btn" type="submit">Solicitar orçamento <span class="arrow" data-icon="arrow"></span></button>
+            </div>
+          </div>
+          <div class="form-status" role="status" tabindex="-1"></div>
+        </form>
+
+        <aside class="aside" aria-label="Informações sobre o orçamento">
+          <div class="aside-card aside-card--dark">
+            <h3>Como funciona</h3>
+            <ol class="steps-mini">
+              <li>Você informa o equipamento, a quantidade e o destino.</li>
+              <li>Nossa equipe confirma especificações e disponibilidade.</li>
+              <li>Cotamos o transporte e os serviços solicitados.</li>
+              <li>Você recebe a proposta com as condições.</li>
+            </ol>
+          </div>
+          <div class="aside-card">
+            <h3>Transporte</h3>
+            <p>Frete grátis em um raio de 300 km da indústria, em Rosário da Limeira (MG), no sentido Sudeste. Nos demais destinos, o valor e o prazo do frete dependem de destino, peso, dimensões e quantidade, e são informados após a cotação.</p>
+          </div>
+          <div class="aside-card">
+            <h3>Prefere conversar?</h3>
+            <p>Fale diretamente com nossa equipe comercial.</p>
+            <a class="btn btn--whatsapp btn--sm" href="contato.html#canais" data-whatsapp style="justify-self:start"><span data-icon="whatsapp"></span>Falar pelo WhatsApp</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Maquiminas Equipamentos — página inicial">
+            <img class="brand__logo brand__logo--footer" src="../assets/images/logo-maquiminas.webp" width="480" height="445" alt="Maquiminas Equipamentos">
+          </a>
+          <p>Equipamentos profissionais com orientação, logística, serviços e atendimento personalizado.</p>
+        </div>
+        <nav class="footer-col" aria-label="Navegação do rodapé">
+          <h2>Navegação</h2>
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="equipamentos.html">Equipamentos</a></li>
+            <li><a href="solucoes.html">Soluções</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="orcamento.html">Solicitar orçamento</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Equipamentos</h2>
+          <ul>
+            <li><a href="equipamentos.html?categoria=panificacao">Panificação</a></li>
+            <li><a href="equipamentos.html?categoria=confeitaria">Confeitaria</a></li>
+            <li><a href="equipamentos.html?categoria=gastronomia">Gastronomia</a></li>
+            <li><a href="equipamentos.html?categoria=refrigeracao">Refrigeração</a></li>
+            <li><a href="equipamentos.html?categoria=coccao">Cocção</a></li>
+            <li><a href="equipamentos.html">Ver todos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Soluções</h2>
+          <ul>
+            <li><a href="solucoes.html#venda">Venda de equipamentos</a></li>
+            <li><a href="solucoes.html#orientacao">Orientação técnica</a></li>
+            <li><a href="solucoes.html#montagem">Montagem e desmontagem</a></li>
+            <li><a href="solucoes.html#instalacao">Instalação</a></li>
+            <li><a href="solucoes.html#logistica">Logística</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h2>Contato</h2>
+          <a href="contato.html#canais" data-whatsapp><span data-icon="whatsapp"></span><span data-whatsapp-number>WhatsApp</span></a>
+          <a data-config-link="email" hidden><span data-icon="mail"></span><span data-label></span></a>
+          <a data-config-link="telefone" hidden><span data-icon="phone"></span><span data-label></span></a>
+          <a href="https://www.instagram.com/maquiminasequipamentos/" data-config-link="instagram" target="_blank" rel="noopener"><span data-icon="instagram"></span>Instagram</a>
+          <a class="btn btn--sm" href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener"><span data-icon="user"></span>Área do Cliente</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> MAQUIMINAS EQUIPAMENTOS. Todos os direitos reservados.</p>
+        <a href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener">Área do Cliente</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/icons.js"></script>
+  <script src="../js/whatsapp.js"></script>
+  <script src="../js/data/categories.js"></script>
+  <script src="../js/data/products.js"></script>
+  <script src="../js/services/product-service.js"></script>
+  <script src="../js/services/logistics-service.js"></script>
+  <script src="../js/services/lead-service.js"></script>
+  <script src="../js/services/axia-service.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/forms.js"></script>
+  <script src="../js/axia.js"></script>
+</body>
+</html>
