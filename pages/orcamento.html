@@ -118,6 +118,16 @@
               <input class="input" id="o-quantidade" name="quantidade" type="number" min="1" step="1" value="1" inputmode="numeric" required aria-describedby="o-quantidade-err">
               <p class="field__error" id="o-quantidade-err"></p>
             </div>
+            <div class="field">
+              <label for="o-voltagem">Voltagem da rede <span class="req" aria-hidden="true">*</span></label>
+              <select class="input" id="o-voltagem" name="voltagem" required aria-describedby="o-voltagem-err" data-msg-required="Informe se a rede é 220 V ou 380 V.">
+                <option value="">Selecione</option>
+                <option value="220 V">220 V</option>
+                <option value="380 V">380 V</option>
+                <option value="Não sei — preciso de orientação">Não sei — preciso de orientação</option>
+              </select>
+              <p class="field__error" id="o-voltagem-err"></p>
+            </div>
             <fieldset class="field field--full checks">
               <legend>Serviços de interesse <span class="opt">(opcional)</span></legend>
               <label class="check"><input type="checkbox" name="servicos" value="Frete">Frete</label>
@@ -128,7 +138,7 @@
             </fieldset>
             <div class="field field--full">
               <label for="o-mensagem">Mensagem <span class="opt">(opcional)</span></label>
-              <textarea class="textarea" id="o-mensagem" name="mensagem" maxlength="2000" placeholder="Capacidade, produção desejada, voltagem, prazo ou outras informações importantes."></textarea>
+              <textarea class="textarea" id="o-mensagem" name="mensagem" maxlength="2000" placeholder="Capacidade, produção desejada, prazo ou outras informações importantes."></textarea>
             </div>
             <div class="field field--full field--accept">
               <label class="check check--accept"><input type="checkbox" id="o-aceite" name="aceite" value="Sim" required data-validate data-msg-required="Para continuar, confirme que leu as condições e políticas." aria-describedby="o-aceite-err"><span>Li e concordo com as <a href="condicoes.html" target="_blank" rel="noopener">condições e políticas</a> de pagamento, frete, recebimento, garantia e manuseio.</span></label>
@@ -149,7 +159,7 @@
           <div class="aside-card aside-card--dark">
             <h3>Como funciona</h3>
             <ol class="steps-mini">
-              <li>Você informa o equipamento, a quantidade e o destino.</li>
+              <li>Você informa o equipamento, a voltagem da rede e o destino.</li>
               <li>Nossa equipe confirma especificações e disponibilidade.</li>
               <li>Cotamos o transporte e os serviços solicitados.</li>
               <li>Você recebe a proposta com as condições.</li>
@@ -158,10 +168,11 @@
           <div class="aside-card aside-card--terms">
             <h3>Condições Maquiminas</h3>
             <ul class="terms-mini">
-              <li><strong>50% de entrada</strong>, que pode ser paga na entrega, e o restante no boleto parcelado.</li>
-              <li><strong>Frete grátis</strong> até 300 km da indústria, em Rosário da Limeira (MG), no sentido Sudeste. Acima disso, frete por conta do comprador.</li>
-              <li>Descarga e espaço de passagem da máquina por conta do comprador.</li>
-              <li>Receber desmontado implica <strong>perda da garantia</strong>.</li>
+              <li><strong>50% de entrada no PIX</strong> e o restante no boleto, após análise cadastral e contrato. Sem cartão no site.</li>
+              <li>Entrada na entrega <strong>somente no Sudeste</strong> e em entrega dedicada. Fora disso, a entrada é paga antes da saída.</li>
+              <li><strong>Frete grátis</strong> até 300 km da indústria, em Rosário da Limeira (MG), no sentido Sudeste. Acima disso, frete por conta do comprador, pago no carregamento.</li>
+              <li>Carga na indústria por conta da Maquiminas. Descarga e espaço de passagem da máquina por conta do comprador.</li>
+              <li>Receber desmontado implica <strong>perda da garantia</strong>. Informe a voltagem (220 V ou 380 V).</li>
             </ul>
             <a class="link-arrow" href="condicoes.html">Ver condições e políticas <span data-icon="arrow"></span></a>
           </div>
@@ -227,7 +238,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span data-year>2026</span> MAQUIMINAS EQUIPAMENTOS. Todos os direitos reservados.</p>
+        <p>© <span data-year>2026</span> MAQUIMINAS EQUIPAMENTOS. <span data-empresa-cnpj></span></p>
         <a href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener">Área do Cliente</a>
       </div>
     </div>

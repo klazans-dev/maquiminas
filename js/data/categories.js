@@ -7,19 +7,19 @@ window.MAQUIMINAS_CATEGORIES = [
   {
     slug: 'panificacao',
     nome: 'Panificação',
-    descricao: 'Equipamentos para produção de pães e massas em escala profissional.',
+    descricao: 'Equipamentos para produção de pães e massas em padaria profissional.',
     imagem: 'assets/illustrations/panificacao.svg'
   },
   {
     slug: 'confeitaria',
     nome: 'Confeitaria',
-    descricao: 'Soluções para preparo de massas, cremes e produção de doces.',
+    descricao: 'Soluções para massas, cremes e produção de doces em confeitaria profissional.',
     imagem: 'assets/illustrations/confeitaria.svg'
   },
   {
     slug: 'gastronomia',
     nome: 'Gastronomia',
-    descricao: 'Equipamentos para cozinhas profissionais e operações de alimentação.',
+    descricao: 'Outras linhas de cozinha profissional, sob consulta.',
     imagem: 'assets/illustrations/gastronomia.svg'
   },
   {

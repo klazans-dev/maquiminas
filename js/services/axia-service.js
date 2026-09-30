@@ -82,24 +82,62 @@
     const text = String(message || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const raio = p.freteGratis ? p.freteGratis.raioKm : null;
     const cidade = p.industria ? `${p.industria.cidade} (${p.industria.uf})` : 'nossa indústria';
+    const emp = config.empresa || {};
     const partes = [];
+    if (/cnpj|quem somos|vovo odete|odete|fundad|historia da empresa/.test(text) && emp.cnpj) {
+      partes.push(
+        `A Maquiminas Equipamentos (CNPJ ${emp.cnpj}) foi fundada a partir da tradicional ${emp.origem || 'Padaria Vovó Odete'}. ` +
+        `Atuamos há ${emp.tempoMercado || 'décadas'}, com fábrica, estoque próprio e estrutura para atendimento e suporte em ${cidade}. ` +
+        'Emitimos nota fiscal, as máquinas são testadas e o atendimento é direto e humanizado. ' +
+        'O Instagram oficial é @maquiminasequipamentos.'
+      );
+    }
 
-    if (/pag|parcel|boleto|entrada|prazo de pag|forma de pag|condic/.test(text)) {
-      partes.push(`Pagamento: ${c.entradaPercentual}% de entrada e o restante no ${c.restante}.` +
-        (c.entradaNaEntrega ? ' A entrada pode ser paga na entrega.' : '') +
-        ' O número de parcelas é definido no orçamento.');
+    if (/pag|parcel|boleto|entrada|prazo de pag|forma de pag|condic|pix|cartao/.test(text)) {
+      const ufs = (c.entradaNaEntregaEstados || []).join(', ');
+      partes.push(
+        `Pagamento: ${c.entradaPercentual}% de entrada${c.pixEntrada ? ' no PIX' : ''} e o restante no ${c.restante}.` +
+        (c.boletoAposAnaliseCadastral ? ' O boleto é gerado após análise cadastral e contrato.' : '') +
+        (c.naoAceitaCartao ? ' Não trabalhamos com cartão de crédito no site.' : '') +
+        ' O número de parcelas é definido no orçamento.'
+      );
+      if (c.entradaNaEntrega) {
+        partes.push(
+          `Entrada na entrega: ${c.entradaNaEntregaQuando || 'conforme orçamento'}${ufs ? ` (${ufs})` : ''}. ` +
+          `Fora desse recorte, ${c.entradaForaDoEscopo}.`
+        );
+      }
     }
-    if (/frete|entrega|envio|transport|km|distancia/.test(text) && raio) {
-      partes.push(`Frete: entregamos em todo o Brasil. Frete grátis em um raio de ${raio} km da indústria, em ${cidade}, no sentido ${p.freteGratis.regiao}. Acima disso, o frete é ${c.freteForaDoRaio}.`);
+    if (/voltag|220|380|tensao|energia/.test(text) && c.voltagemObrigatoria) {
+      partes.push('Voltagem: é obrigatório informar se a rede é 220 V ou 380 V. A voltagem errada pode exigir conversão no destino, por conta do comprador.');
     }
-    if (/descarg|caminhao|porta|espaco|passar|receb/.test(text)) {
-      partes.push('Recebimento: a retirada da máquina do caminhão e o espaço para ela passar até o local na loja são por conta do comprador.');
+    if (/frete|envio|transport|quilometr|distancia/.test(text) && raio) {
+      partes.push(
+        `Frete: entregamos em todo o Brasil. Frete grátis em um raio de ${raio} km da indústria, em ${cidade}, no sentido ${p.freteGratis.regiao}. Acima disso, o frete é ${c.freteForaDoRaio}.` +
+        (c.fretePagoNoCarregamento ? ' O frete é pago no carregamento.' : '')
+      );
     }
-    if (/garantia|desmont/.test(text) && c.desmontadoPerdeGarantia) {
-      partes.push('Garantia: se o comprador optar por receber o equipamento desmontado, a garantia é perdida.');
+    if (/descarg|caminhao|porta|espaco|passar|receb|carga|carreg/.test(text)) {
+      const carga = c.cargaPorContaDaIndustria ? 'O carregamento na indústria é por conta da Maquiminas. ' : '';
+      partes.push(`${carga}A retirada da máquina do caminhão e o espaço para ela passar até o local na loja são por conta do comprador.`);
     }
-    if (/virar|ponta|cabeca|abrir|manuse|regra|desmont/.test(text) && c.regrasManuseio.length) {
-      partes.push(`Regras de manuseio: ${c.regrasManuseio.join('; ')}.`);
+    if (/montad|montar|desmont/.test(text)) {
+      partes.push(
+        `Envio: o equipamento segue montado. Até ${c.desmontadoComMontadorAteKm} km da indústria, o envio desmontado com montador pode ser avaliado e a montagem é cobrada no orçamento.` +
+        (c.desmontadoPerdeGarantia ? ' Se o comprador optar por receber desmontado, a garantia é perdida.' : '')
+      );
+    }
+    if (/garantia|semi-novo|seminovo|reformad/.test(text)) {
+      partes.push(
+        `Garantia: equipamentos novos fabricados pela Maquiminas têm ${c.garantiaNovoMeses} meses. Semi-novos e reformados têm ${c.garantiaSemiNovoDias} dias.` +
+        (c.desmontadoPerdeGarantia ? ' Receber desmontado implica perda da garantia.' : '')
+      );
+    }
+    if (/tecnico|assistenc|manutenc|conserto/.test(text) && c.assistenciaTecnicaRaioKm) {
+      partes.push(`Assistência: em um raio de ${c.assistenciaTecnicaRaioKm} km da indústria, a manutenção pode ser feita por técnico da Maquiminas. Fora desse raio, indicamos técnico da região. Condições conforme o orçamento e a garantia vigente.`);
+    }
+    if (/virar|ponta|cabeca|abrir|manuse|regra|deitar|lastro/.test(text) && c.regrasManuseio.length) {
+      partes.push(`Regras de manuseio: ${c.regrasManuseio.join('; ')}. Fornos de lastro não podem ser deitados: a pedra quebra.`);
     }
     if (!partes.length) return null;
     return { texto: partes.join('\n\n'), acoes: ['condicoes', 'orcamento', 'especialista'] };

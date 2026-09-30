@@ -19,6 +19,7 @@
     modelo: '',
     descricao: '',
     imagem: '',
+    ilustracao: '',
     imagens: [],
     preco: null,
     capacidade: '',
@@ -33,21 +34,47 @@
     especificacoes: [],
     disponivel: null,
     destaque: false,
-    demonstrativo: false
+    demonstrativo: false,
+    condicao: '',
+    equivalentes: []
   };
+
+  const CONDICAO_ROTULO = Object.freeze({
+    novo: 'Novo',
+    'semi-novo': 'Semi-novo',
+    reformado: 'Reformado'
+  });
 
   const clean = (value) => (typeof value === 'string' ? value.trim() : value);
 
   function normalizeProduct(raw) {
     const product = { ...EMPTY_PRODUCT };
     Object.keys(EMPTY_PRODUCT).forEach((key) => {
-      if (raw[key] !== undefined && raw[key] !== null) product[key] = clean(raw[key]);
+      if (raw[key] === undefined || raw[key] === null) return;
+      const value = clean(raw[key]);
+      // Campos de texto aceitam números vindos do ERP (ex.: id 123, capacidade 25).
+      product[key] = typeof EMPTY_PRODUCT[key] === 'string' && typeof value === 'number' ? String(value) : value;
     });
     product.imagens = Array.isArray(raw.imagens) ? raw.imagens.filter(Boolean) : [];
     product.especificacoes = Array.isArray(raw.especificacoes)
-      ? raw.especificacoes.filter((s) => s && s.rotulo && s.valor)
+      ? raw.especificacoes
+          .filter((s) => s && s.rotulo && s.valor !== undefined && s.valor !== null && s.valor !== '')
+          .map((s) => ({ rotulo: String(s.rotulo), valor: String(s.valor) }))
       : [];
-    if (typeof product.preco !== 'number' || product.preco <= 0) product.preco = null;
+    const preco = typeof product.preco === 'string' ? Number(product.preco.replace(',', '.')) : product.preco;
+    product.preco = typeof preco === 'number' && Number.isFinite(preco) && preco > 0 ? preco : null;
+    const asFlag = (value) =>
+      [true, 1, '1', 'true', 's', 'sim'].includes(typeof value === 'string' ? value.toLowerCase() : value);
+    product.destaque = asFlag(product.destaque);
+    product.demonstrativo = asFlag(product.demonstrativo);
+    const condicao = normalizeText(product.condicao).replace(/\s+/g, '-');
+    product.condicao = CONDICAO_ROTULO[condicao] ? condicao : '';
+    const eqs = raw.equivalentes;
+    product.equivalentes = Array.isArray(eqs)
+      ? eqs.map((id) => String(id || '').trim()).filter(Boolean)
+      : typeof eqs === 'string' && eqs.trim()
+        ? eqs.split(/[,;]/).map((id) => id.trim()).filter(Boolean)
+        : [];
     return product;
   }
 
@@ -69,8 +96,10 @@
   };
 
   /**
-   * Fonte remota. O contrato exato será definido junto ao backend do ERP Callinfo.
-   * Expectativa: GET {api.produtos} -> Produto[] e GET {api.produtos}/categorias -> Categoria[].
+   * Fonte remota (ERP Callinfo, via endpoint público somente leitura — sem chaves no front-end).
+   * GET {api.produtos}            -> Produto[] ou { produtos: Produto[] } (apenas itens publicados)
+   * GET {api.produtos}/categorias -> Categoria[] { slug, nome, descricao, imagem } (opcional; sem ela usa as categorias locais)
+   * Imagens devem vir como URLs públicas completas (https://...).
    */
   const ApiAdapter = {
     async fetchProducts() {
@@ -119,7 +148,7 @@
   };
 
   /**
-   * @param {{busca?: string, categoria?: string, marca?: string, voltagem?: string, ordenacao?: string}} filtros
+   * @param {{busca?: string, categoria?: string, marca?: string, voltagem?: string, condicao?: string, ordenacao?: string}} filtros
    */
   async function list(filtros = {}) {
     const termo = normalizeText(filtros.busca);
@@ -127,8 +156,9 @@
       if (filtros.categoria && p.categoria !== filtros.categoria) return false;
       if (filtros.marca && p.marca !== filtros.marca) return false;
       if (filtros.voltagem && p.voltagem !== filtros.voltagem) return false;
+      if (filtros.condicao && p.condicao !== filtros.condicao) return false;
       if (!termo) return true;
-      const haystack = normalizeText([p.nome, p.marca, p.modelo, p.descricao, p.aplicacao, p.categoria].join(' '));
+      const haystack = normalizeText([p.nome, p.marca, p.modelo, p.descricao, p.aplicacao, p.categoria, p.condicao].join(' '));
       return termo.split(/\s+/).every((word) => haystack.includes(word));
     });
     result = [...result].sort(SORTERS[filtros.ordenacao] || SORTERS.relevancia);
@@ -147,9 +177,14 @@
 
   async function getRelated(product, limit = 3) {
     const all = await getAll();
-    const same = all.filter((p) => p.id !== product.id && p.categoria === product.categoria);
-    const others = all.filter((p) => p.id !== product.id && p.categoria !== product.categoria);
-    return [...same, ...others].slice(0, limit);
+    const eqIds = new Set(product.equivalentes || []);
+    const equivalentes = (product.equivalentes || [])
+      .map((id) => all.find((p) => p.id === id))
+      .filter(Boolean);
+    const rest = all.filter((p) => p.id !== product.id && !eqIds.has(p.id));
+    const same = rest.filter((p) => p.categoria === product.categoria);
+    const others = rest.filter((p) => p.categoria !== product.categoria);
+    return [...equivalentes, ...same, ...others].slice(0, limit);
   }
 
   /** Valores disponíveis para filtros (somente campos realmente preenchidos). */
@@ -157,13 +192,17 @@
     const all = await getAll();
     const unique = (key) => [...new Set(all.map((p) => p[key]).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'pt-BR'));
     const counts = all.reduce((acc, p) => ({ ...acc, [p.categoria]: (acc[p.categoria] || 0) + 1 }), {});
-    return { marcas: unique('marca'), voltagens: unique('voltagem'), categorias: counts, total: all.length };
+    return { marcas: unique('marca'), voltagens: unique('voltagem'), condicoes: unique('condicao'), categorias: counts, total: all.length };
   }
 
   /** Texto comercial para preço — nunca estima valores. */
   function formatPrice(product) {
     if (product.preco === null) return 'Consulte condições';
     return product.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  function formatCondicao(product) {
+    return CONDICAO_ROTULO[product.condicao] || '';
   }
 
   function formatAvailability(product) {
@@ -184,9 +223,16 @@
       ['dimensoes', 'Dimensões'],
       ['peso', 'Peso'],
       ['material', 'Material'],
-      ['aplicacao', 'Aplicação']
+      ['aplicacao', 'Aplicação'],
+      ['condicao', 'Condição']
     ];
-    const base = fields.filter(([key]) => product[key]).map(([key, rotulo]) => ({ chave: key, rotulo, valor: product[key] }));
+    const base = fields
+      .filter(([key]) => product[key])
+      .map(([key, rotulo]) => ({
+        chave: key,
+        rotulo,
+        valor: key === 'condicao' ? formatCondicao(product) : product[key]
+      }));
     return [...base, ...product.especificacoes.map((s) => ({ chave: 'extra', rotulo: s.rotulo, valor: s.valor }))];
   }
 
@@ -206,6 +252,7 @@
     getFacets,
     formatPrice,
     formatAvailability,
+    formatCondicao,
     getSpecs,
     getMainSpec,
     normalizeProduct

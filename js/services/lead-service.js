@@ -63,6 +63,7 @@
       ['Cidade/UF', [lead.cidade, lead.estado].filter(Boolean).join(' - ')],
       ['Equipamento', lead.equipamento],
       ['Quantidade', lead.quantidade],
+      ['Voltagem', lead.voltagem],
       ['Serviços', (lead.servicos || []).join(', ')],
       ['Assunto', lead.assunto],
       ['Mensagem', lead.mensagem],

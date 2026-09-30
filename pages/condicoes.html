@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Condições e Políticas | Maquiminas Equipamentos</title>
-  <meta name="description" content="Condições de pagamento, frete, recebimento, garantia e regras de manuseio dos equipamentos Maquiminas: 50% de entrada, restante no boleto parcelado e frete grátis até 300 km da indústria.">
+  <meta name="description" content="Condições Maquiminas: 50% no PIX e boleto parcelado, entrada na entrega só no Sudeste, frete grátis até 300 km, garantia e regras de manuseio.">
   <meta name="theme-color" content="#041d3f">
   <link rel="icon" href="../assets/icons/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
@@ -65,11 +65,13 @@
           <li aria-current="page">Condições e Políticas</li>
         </ol>
         <h1 class="display h1">Condições e políticas</h1>
-        <p class="lead">Leia com atenção antes de fechar o seu pedido. Estas regras valem para todas as compras de equipamentos Maquiminas.</p>
+        <p class="lead">Leia com atenção antes de fechar o pedido. Estas regras valem para as compras de equipamentos Maquiminas.</p>
         <nav class="policy-nav" aria-label="Seções desta página">
           <a href="#pagamento"><span data-icon="wallet"></span>Pagamento</a>
+          <a href="#compra"><span data-icon="doc"></span>Como comprar</a>
           <a href="#frete"><span data-icon="truck"></span>Frete</a>
           <a href="#recebimento"><span data-icon="dolly"></span>Recebimento</a>
+          <a href="#montagem"><span data-icon="wrench"></span>Montagem</a>
           <a href="#garantia"><span data-icon="shield"></span>Garantia</a>
           <a href="#manuseio"><span data-icon="alert"></span>Manuseio</a>
         </nav>
@@ -82,36 +84,61 @@
         <div class="pay reveal">
           <div class="pay__intro">
             <span class="pay__badge">Condição exclusiva Maquiminas</span>
-            <h2 id="pay-title" class="display h2"><span class="pay__big">50%</span> de entrada e o restante no boleto parcelado</h2>
-            <p>E você ainda pode pagar a entrada somente na entrega do equipamento.</p>
+            <h2 id="pay-title" class="display h2"><span class="pay__big">50%</span> de entrada no PIX e o restante no boleto parcelado</h2>
+            <p>Não trabalhamos com cartão de crédito no site. O número de parcelas é definido no seu orçamento, após análise cadastral e contrato.</p>
           </div>
           <ol class="pay__steps">
             <li>
               <span class="pay__num">01</span>
               <span data-icon="wallet"></span>
-              <h3>Entrada de 50%</h3>
-              <p>Metade do valor do equipamento como entrada.</p>
+              <h3>Entrada de 50% no PIX</h3>
+              <p>Metade do valor do equipamento como entrada, preferencialmente via PIX.</p>
             </li>
             <li>
               <span class="pay__num">02</span>
-              <span data-icon="truck"></span>
-              <h3>Entrada na entrega</h3>
-              <p>A entrada pode ser paga no momento da entrega.</p>
+              <span data-icon="barcode"></span>
+              <h3>Restante no boleto</h3>
+              <p>Os outros 50% são pagos em boleto parcelado, depois da análise cadastral e da assinatura do contrato.</p>
             </li>
             <li>
               <span class="pay__num">03</span>
-              <span data-icon="barcode"></span>
-              <h3>Restante no boleto</h3>
-              <p>Os outros 50% são pagos em boleto parcelado.</p>
+              <span data-icon="truck"></span>
+              <h3>Entrada na entrega</h3>
+              <p>Só no Sudeste (MG, ES, RJ e SP) e quando a entrega for dedicada. Fora disso, a entrada é paga antes da saída.</p>
+            </li>
+            <li>
+              <span class="pay__num">04</span>
+              <span data-icon="plug"></span>
+              <h3>Voltagem obrigatória</h3>
+              <p>Informe se a rede é 220 V ou 380 V. A voltagem errada pode exigir conversão no destino, por conta do comprador.</p>
             </li>
           </ol>
-          <p class="pay__note">O número de parcelas e as datas de vencimento são definidos no seu orçamento.</p>
+          <p class="pay__note">A opção de pagar a entrada na entrega não vale para o Brasil todo: se o motorista segue viagem e não retorna, a entrada precisa estar paga antes do embarque.</p>
         </div>
       </div>
     </section>
 
+    <!-- COMO COMPRAR -->
+    <section class="section section--muted" id="compra" aria-labelledby="buy-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Como comprar</span>
+          <h2 id="buy-title" class="display h2">Do orçamento ao recebimento</h2>
+          <p class="lead">Este é o fluxo comercial da Maquiminas. Datas e parcelas saem no seu contrato.</p>
+        </div>
+        <ol class="buy-flow">
+          <li class="reveal"><span>01</span><h3>Negociação</h3><p>50% de entrada no PIX e o restante no boleto parcelado, nas condições do orçamento.</p></li>
+          <li class="reveal" style="--delay:.05s"><span>02</span><h3>Análise cadastral</h3><p>Enviamos uma ficha para análise e aprovação dos boletos.</p></li>
+          <li class="reveal" style="--delay:.1s"><span>03</span><h3>Contrato</h3><p>Após a aprovação, o contrato é gerado e assinado digitalmente.</p></li>
+          <li class="reveal"><span>04</span><h3>Embarque</h3><p>Enviamos fotos e vídeos do carregamento. O frete é pago no ato do embarque, por conta do comprador (exceto no raio de frete grátis).</p></li>
+          <li class="reveal" style="--delay:.05s"><span>05</span><h3>Chegada</h3><p>O comprador confere o equipamento. A descarga do caminhão é por conta dele.</p></li>
+          <li class="reveal" style="--delay:.1s"><span>06</span><h3>Entrada</h3><p>No Sudeste, em entrega dedicada, a entrada pode ser PIX ou dinheiro na entrega. Nos demais casos, a entrada já foi paga antes da saída.</p></li>
+        </ol>
+      </div>
+    </section>
+
     <!-- FRETE -->
-    <section class="section section--muted" id="frete" aria-labelledby="ship-title">
+    <section class="section" id="frete" aria-labelledby="ship-title">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Frete e entrega</span>
@@ -141,35 +168,97 @@
         <div class="section-head reveal">
           <span class="eyebrow">Recebimento</span>
           <h2 id="recv-title" class="display h2">Responsabilidades do comprador na entrega</h2>
-          <p class="lead">Prepare o local antes da chegada do equipamento. Estes itens são de responsabilidade do comprador:</p>
+          <p class="lead">Separe o que é da indústria e o que fica com o comprador na origem e no destino.</p>
         </div>
         <div class="duty">
           <article class="duty__item reveal">
+            <span class="duty__icon" data-icon="box"></span>
+            <div>
+              <h3>Carregamento na indústria</h3>
+              <p>A Maquiminas carrega o equipamento no caminhão na origem. Esse serviço é por conta da indústria.</p>
+            </div>
+          </article>
+          <article class="duty__item reveal" style="--delay:.06s">
             <span class="duty__icon" data-icon="dolly"></span>
             <div>
               <h3>Descarga do caminhão</h3>
-              <p>A retirada da máquina do caminhão de entrega é por conta do comprador. Providencie pessoas e meios adequados para a descarga.</p>
+              <p>A retirada da máquina do caminhão no destino é por conta do comprador. Providencie pessoas e meios adequados (munck, empilhadeira ou equivalente).</p>
             </div>
           </article>
-          <article class="duty__item reveal" style="--delay:.08s">
+          <article class="duty__item reveal" style="--delay:.12s">
             <span class="duty__icon" data-icon="door"></span>
             <div>
               <h3>Espaço para a máquina passar</h3>
-              <p>O comprador deve garantir que o equipamento passe até o local de instalação dentro da loja: portas, corredores e acessos. Confira as medidas antes da entrega.</p>
+              <p>O comprador garante que o equipamento entre até o local de instalação: portas, corredores e acessos. Confira as medidas antes da entrega.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- GARANTIA -->
-    <section class="section section--muted" id="garantia" aria-labelledby="war-title">
+    <!-- MONTAGEM -->
+    <section class="section section--muted" id="montagem" aria-labelledby="asm-title">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Montagem</span>
+          <h2 id="asm-title" class="display h2">O equipamento segue montado</h2>
+          <p class="lead">O padrão é enviar montado. O vão de porta e os acessos precisam comportar as medidas do equipamento.</p>
+        </div>
+        <div class="ship">
+          <article class="ship__card reveal">
+            <span class="ship__tag">Padrão</span>
+            <h3 class="display">Vai montado</h3>
+            <p>Fora do raio de 300 km da indústria, o envio é montado. Qualquer alteração não autorizada no equipamento perde a garantia.</p>
+          </article>
+          <article class="ship__card reveal" style="--delay:.08s">
+            <span class="ship__tag">Até 300 km</span>
+            <h3 class="display">Desmontado com montador</h3>
+            <p>Até 300 km, o envio desmontado com montador da Maquiminas pode ser avaliado. A montagem é cobrada no orçamento. Se o comprador receber desmontado por conta própria, a garantia é perdida.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GARANTIA -->
+    <section class="section" id="garantia" aria-labelledby="war-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Garantia e assistência</span>
+          <h2 id="war-title" class="display h2">Prazos conforme a condição do equipamento</h2>
+        </div>
+        <div class="ship" style="margin-bottom:28px">
+          <article class="ship__card ship__card--free reveal">
+            <span class="ship__tag">Novo fabricado pela Maquiminas</span>
+            <h3 class="display">12 meses</h3>
+            <p>Garantia de 12 meses para equipamentos novos fabricados pela indústria.</p>
+          </article>
+          <article class="ship__card reveal" style="--delay:.08s">
+            <span class="ship__tag">Semi-novo ou reformado</span>
+            <h3 class="display">90 dias</h3>
+            <p>Garantia de 90 dias para equipamentos semi-novos e reformados.</p>
+          </article>
+        </div>
+        <div class="duty duty--2" style="margin-bottom:28px">
+          <article class="duty__item reveal">
+            <span class="duty__icon" data-icon="wrench"></span>
+            <div>
+              <h3>Até 350 km</h3>
+              <p>Manutenção em garantia pode ser feita por técnico da Maquiminas em um raio de 350 km da indústria.</p>
+            </div>
+          </article>
+          <article class="duty__item reveal" style="--delay:.08s">
+            <span class="duty__icon" data-icon="headset"></span>
+            <div>
+              <h3>Fora desse raio</h3>
+              <p>Indicamos técnico da região. O acionamento segue a garantia vigente e é combinado com a nossa equipe.</p>
+            </div>
+          </article>
+        </div>
         <div class="warn reveal" role="note">
           <span class="warn__icon" data-icon="shield"></span>
           <div>
-            <span class="eyebrow">Garantia</span>
-            <h2 id="war-title" class="display h2">Recebeu desmontado, perde a garantia</h2>
+            <span class="eyebrow">Atenção</span>
+            <h2 class="display h2">Recebeu desmontado, perde a garantia</h2>
             <p>Se o comprador optar por receber o equipamento desmontado, <strong>a garantia é perdida</strong>.</p>
           </div>
         </div>
@@ -191,14 +280,19 @@
             <p>O equipamento nunca pode ser virado de cabeça para baixo.</p>
           </li>
           <li class="rule reveal" style="--delay:.06s">
+            <span class="rule__icon" data-icon="no-lay"></span>
+            <h3>Não deitar</h3>
+            <p>Não deite o equipamento de lado. Em fornos de lastro, a pedra quebra.</p>
+          </li>
+          <li class="rule reveal" style="--delay:.12s">
             <span class="rule__icon" data-icon="no-disassemble"></span>
             <h3>Não desmontar</h3>
             <p>O equipamento não pode ser desmontado.</p>
           </li>
-          <li class="rule reveal" style="--delay:.12s">
+          <li class="rule reveal">
             <span class="rule__icon" data-icon="no-open"></span>
             <h3>Não abrir</h3>
-            <p>O equipamento não pode ser aberto.</p>
+            <p>O equipamento não pode ser aberto. Alteração não autorizada perde a garantia.</p>
           </li>
         </ul>
       </div>
@@ -212,11 +306,12 @@
           <h2 id="sum-title" class="display h2" style="margin-top:18px">Antes de fechar o pedido</h2>
         </div>
         <ul class="summary__list reveal" style="--delay:.08s">
-          <li><span data-icon="check"></span>50% de entrada, com opção de pagar na entrega, e o restante no boleto parcelado.</li>
-          <li><span data-icon="check"></span>Frete grátis até 300 km da indústria (sentido Sudeste). Acima disso, frete por conta do comprador.</li>
-          <li><span data-icon="check"></span>Descarga do caminhão e espaço de passagem da máquina por conta do comprador.</li>
-          <li><span data-icon="check"></span>Receber o equipamento desmontado implica a perda da garantia.</li>
-          <li><span data-icon="check"></span>Não virar de ponta-cabeça, não desmontar e não abrir o equipamento.</li>
+          <li><span data-icon="check"></span>50% de entrada no PIX e o restante no boleto, após análise e contrato. Sem cartão no site.</li>
+          <li><span data-icon="check"></span>Entrada na entrega só no Sudeste e em entrega dedicada. Informe a voltagem (220 V ou 380 V).</li>
+          <li><span data-icon="check"></span>Frete grátis até 300 km (sentido Sudeste). Acima disso, frete por conta do comprador, pago no carregamento.</li>
+          <li><span data-icon="check"></span>Carga na indústria por conta da Maquiminas. Descarga e vão de passagem por conta do comprador.</li>
+          <li><span data-icon="check"></span>Garantia: 12 meses (novo fabricado) ou 90 dias (semi-novo/reformado). Desmontado perde a garantia.</li>
+          <li><span data-icon="check"></span>Não virar, não deitar, não desmontar e não abrir o equipamento.</li>
         </ul>
         <div class="btn-row reveal" style="--delay:.12s">
           <a class="btn" href="orcamento.html">Solicitar orçamento <span class="arrow" data-icon="arrow"></span></a>
@@ -278,7 +373,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span data-year>2026</span> MAQUIMINAS EQUIPAMENTOS. Todos os direitos reservados.</p>
+        <p>© <span data-year>2026</span> MAQUIMINAS EQUIPAMENTOS. <span data-empresa-cnpj></span></p>
         <a href="https://saa-s-callinfo.vercel.app/login.html" data-config-link="areaCliente" target="_blank" rel="noopener">Área do Cliente</a>
       </div>
     </div>

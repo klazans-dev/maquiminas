@@ -66,6 +66,11 @@
         input.value = [product.nome, product.marca, product.modelo].filter(Boolean).join(' ');
         const hidden = form.querySelector('[name="produtoId"]');
         if (hidden) hidden.value = product.id;
+        const volt = form.querySelector('[name="voltagem"]');
+        if (volt && product.voltagem) {
+          if (/380/.test(product.voltagem)) volt.value = '380 V';
+          else if (/220/.test(product.voltagem)) volt.value = '220 V';
+        }
         return;
       }
     }
@@ -90,7 +95,7 @@
       input.addEventListener('blur', () => {
         if (form.dataset.submitted) validateField(input);
       });
-      input.addEventListener(input.type === 'checkbox' ? 'change' : 'input', () => {
+      input.addEventListener(['checkbox', 'select-one', 'select-multiple'].includes(input.type) ? 'change' : 'input', () => {
         if (input.closest('.field.has-error')) validateField(input);
       });
     });

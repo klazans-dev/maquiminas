@@ -4,7 +4,7 @@
  * Fluxo futuro:
  *   Produto -> Peso -> Dimensões -> Origem -> Destino -> Cotação de transporte -> Prazo -> Valor -> Orçamento
  *
- * Hoje a cotação é feita manualmente pela equipe Maquiminas (atualmente via Fretebras).
+ * Hoje a cotação é feita manualmente pela equipe Maquiminas.
  * Não há integração automática: este serviço apenas organiza os dados necessários
  * e indica o que ainda falta para a equipe cotar. Nenhum valor ou prazo é calculado no front-end.
  */

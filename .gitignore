@@ -6,3 +6,10 @@ node_modules/
 .vercel/
 .DS_Store
 *.log
+*.mp4
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.ogg
+*.flac

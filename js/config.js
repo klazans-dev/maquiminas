@@ -14,7 +14,10 @@ const MAQUIMINAS_CONFIG = Object.freeze({
     cidade: 'Rosário da Limeira',
     estado: 'MG',
     endereco: '',
-    horario: ''
+    horario: '',
+    cnpj: '02.879.806/0001-27',
+    origem: 'Padaria Vovó Odete',
+    tempoMercado: 'quase 30 anos'
   }),
 
   // Somente dígitos, com DDI e DDD. Ex.: '5531999999999'
@@ -61,17 +64,40 @@ const MAQUIMINAS_CONFIG = Object.freeze({
 
   /**
    * Condições comerciais oficiais (exibidas na página de Condições e usadas pela AXIA).
-   * Detalhes como número de parcelas e datas são definidos em cada orçamento.
+   * Número de parcelas, valores de montagem e de frete por km são definidos no orçamento.
+   * Não cite fornecedores internos de transporte no site.
    */
   condicoes: Object.freeze({
     entradaPercentual: 50,
     restante: 'boleto parcelado',
+    pixEntrada: true,
+    naoAceitaCartao: true,
+    boletoAposAnaliseCadastral: true,
+    contratoAntesDoBoleto: true,
     entradaNaEntrega: true,
+    entradaNaEntregaRegiao: 'Sudeste',
+    entradaNaEntregaEstados: Object.freeze(['MG', 'ES', 'RJ', 'SP']),
+    entradaNaEntregaQuando: 'somente no Sudeste (MG, ES, RJ e SP) e quando a entrega for dedicada — o motorista vai e pode retornar',
+    entradaForaDoEscopo: 'os 50% de entrada são pagos antes da saída do equipamento',
+    fretePagoNoCarregamento: true,
     freteForaDoRaio: 'por conta do comprador',
+    cargaPorContaDaIndustria: true,
     descargaPorContaDoComprador: true,
     acessoPorContaDoComprador: true,
+    vaiMontado: true,
+    desmontadoComMontadorAteKm: 300,
+    montagemCobradaNoOrcamento: true,
     desmontadoPerdeGarantia: true,
-    regrasManuseio: Object.freeze(['Não virar de ponta-cabeça', 'Não desmontar', 'Não abrir'])
+    garantiaNovoMeses: 12,
+    garantiaSemiNovoDias: 90,
+    assistenciaTecnicaRaioKm: 350,
+    voltagemObrigatoria: true,
+    regrasManuseio: Object.freeze([
+      'Não virar de ponta-cabeça',
+      'Não deitar o equipamento',
+      'Não desmontar',
+      'Não abrir'
+    ])
   }),
 
   /**

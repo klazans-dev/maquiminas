@@ -8,12 +8,19 @@
   const PS = window.ProductService;
   const wa = window.MaquiminasWhatsApp;
 
-  const isIllustration = (src) => /illustrations\//.test(src);
+  const isIllustration = (src) => /illustrations\//.test(String(src || ''));
   const resolveSrc = (src) => (/^(https?:)?\/\//.test(src) || src.startsWith('/') ? src : url(src));
 
+  /** Desenho técnico do card: não troca para foto quando `imagens` for preenchido depois. */
+  function illustrationSrc(product, category) {
+    const fallback = 'assets/illustrations/outros.svg';
+    const candidates = [product.ilustracao, product.imagem, category && category.imagem, fallback];
+    return candidates.find((src) => src && isIllustration(src)) || fallback;
+  }
+
   function productImage(product, category) {
-    const src = product.imagem || (product.imagens[0] || '') || (category && category.imagem) || 'assets/illustrations/outros.svg';
-    return { src: resolveSrc(src), photo: !isIllustration(src) };
+    const src = illustrationSrc(product, category);
+    return { src: resolveSrc(src), photo: false };
   }
 
   const productUrl = (p) => url(`pages/produto.html?id=${encodeURIComponent(p.id)}`);
@@ -24,11 +31,16 @@
     const img = productImage(product, category);
     const meta = [product.marca, product.modelo].filter(Boolean).join(' · ');
     const spec = PS.getMainSpec(product);
+    const condicao = PS.formatCondicao(product);
+    const badges = [
+      condicao && `<span class="tag">${esc(condicao)}</span>`,
+      product.demonstrativo && '<span class="tag tag--demo">Demonstrativo</span>'
+    ].filter(Boolean).join('');
     return `
       <article class="product-card reveal">
         <a class="product-card__media ${img.photo ? 'product-card__media--photo' : 'blueprint'}" href="${productUrl(product)}" tabindex="-1" aria-hidden="true">
           <img src="${img.src}" alt="" loading="lazy" decoding="async" width="400" height="300">
-          ${product.demonstrativo ? '<span class="product-card__badges"><span class="tag tag--demo">Demonstrativo</span></span>' : ''}
+          ${badges ? `<span class="product-card__badges">${badges}</span>` : ''}
         </a>
         <div class="product-card__body">
           <span class="product-card__cat">${esc(category ? category.nome : product.categoria)}</span>
@@ -91,6 +103,7 @@
       busca: params.get('busca') || '',
       marca: params.get('marca') || '',
       voltagem: params.get('voltagem') || '',
+      condicao: params.get('condicao') || '',
       ordenacao: params.get('ordem') || 'relevancia'
     };
 
@@ -120,7 +133,11 @@
     const optionalGroup = (key, title, values) =>
       values.length
         ? `<div class="filters__group"><h2 class="filters__title">${title}</h2><ul class="filter-list">
-            ${filterButton(key, '', 'Todas')}${values.map((v) => filterButton(key, v, v)).join('')}</ul></div>`
+            ${filterButton(key, '', 'Todas')}${values.map((v) => {
+              const value = typeof v === 'object' ? v.value : v;
+              const label = typeof v === 'object' ? v.label : v;
+              return filterButton(key, value, label);
+            }).join('')}</ul></div>`
         : '';
 
     filtersRoot.innerHTML = `
@@ -132,7 +149,8 @@
         </ul>
       </div>
       ${optionalGroup('marca', 'Marca', facets.marcas)}
-      ${optionalGroup('voltagem', 'Voltagem', facets.voltagens)}
+        ${optionalGroup('voltagem', 'Voltagem', facets.voltagens)}
+        ${optionalGroup('condicao', 'Condição', facets.condicoes.map((v) => ({ value: v, label: PS.formatCondicao({ condicao: v }) })))}
       <div class="filters__help">
         <strong>Não encontrou o que procura?</strong>
         <p>Informe sua necessidade e nossa equipe indica o equipamento adequado.</p>
@@ -149,6 +167,7 @@
       if (state.busca) next.set('busca', state.busca);
       if (state.marca) next.set('marca', state.marca);
       if (state.voltagem) next.set('voltagem', state.voltagem);
+      if (state.condicao) next.set('condicao', state.condicao);
       if (state.ordenacao !== 'relevancia') next.set('ordem', state.ordenacao);
       const qs = next.toString();
       history.replaceState(null, '', qs ? `?${qs}` : window.location.pathname);
@@ -168,7 +187,7 @@
 
     async function render() {
       const products = await PS.list(state);
-      const hasFilters = Boolean(state.categoria || state.busca || state.marca || state.voltagem);
+      const hasFilters = Boolean(state.categoria || state.busca || state.marca || state.voltagem || state.condicao);
       countEl.textContent = `${products.length} ${products.length === 1 ? 'equipamento encontrado' : 'equipamentos encontrados'}`;
       clearBtn.hidden = !hasFilters;
       if (noticeEl) noticeEl.hidden = !products.some((p) => p.demonstrativo);
@@ -219,7 +238,7 @@
     });
 
     clearBtn.addEventListener('click', () => {
-      Object.assign(state, { categoria: '', busca: '', marca: '', voltagem: '' });
+      Object.assign(state, { categoria: '', busca: '', marca: '', voltagem: '', condicao: '' });
       searchInput.value = '';
       update();
     });
@@ -259,9 +278,10 @@
 
     const categories = await PS.getCategories();
     const category = categories.find((c) => c.slug === product.categoria);
-    const gallery = [product.imagem, ...product.imagens].filter(Boolean);
+    const drawing = illustrationSrc(product, category);
+    const gallery = [drawing, product.imagem, ...product.imagens].filter(Boolean);
     const unique = [...new Set(gallery)];
-    const main = unique.length ? { src: resolveSrc(unique[0]), photo: !isIllustration(unique[0]) } : productImage(product, category);
+    const main = { src: resolveSrc(unique[0] || drawing), photo: !isIllustration(unique[0] || drawing) };
     const waMessage = wa.productMessage(product);
 
     const title = `${product.nome}${product.marca ? ` ${product.marca}` : ''}${product.modelo ? ` ${product.modelo}` : ''}`;
@@ -298,6 +318,7 @@
         <span class="product__cat">${esc(category ? category.nome : product.categoria)}</span>
         <h1 class="product__title">${esc(product.nome)}</h1>
         ${ids.length ? `<p class="product__ids">${ids.join('')}</p>` : ''}
+        ${PS.formatCondicao(product) ? `<p class="product__ids"><span>Condição: <strong>${esc(PS.formatCondicao(product))}</strong></span></p>` : ''}
         ${product.demonstrativo ? '<p><span class="tag tag--demo">Item demonstrativo — conteúdo ilustrativo</span></p>' : ''}
         ${product.descricao ? `<p class="product__desc">${esc(product.descricao)}</p>` : ''}
         <dl class="commercial">
@@ -310,9 +331,9 @@
         </div>
         <div class="product__terms">
           <ul>
-            <li>${icon('wallet')}<span><strong>50% de entrada</strong> (pode ser paga na entrega) e o restante no boleto parcelado</span></li>
-            <li>${icon('truck')}<span><strong>Frete grátis</strong> até 300 km da indústria (sentido Sudeste). Acima disso, frete por conta do comprador</span></li>
-            <li>${icon('alert')}<span>Não virar de ponta-cabeça, não desmontar e não abrir. Receber desmontado implica perda da garantia</span></li>
+            <li>${icon('wallet')}<span><strong>50% de entrada no PIX</strong> e o restante no boleto após análise e contrato. Sem cartão no site.</span></li>
+            <li>${icon('truck')}<span>Entrada na entrega só no Sudeste e em entrega dedicada. <strong>Frete grátis</strong> até 300 km (sentido Sudeste)</span></li>
+            <li>${icon('alert')}<span>Não virar, não deitar, não desmontar e não abrir. Receber desmontado implica perda da garantia</span></li>
           </ul>
           <a href="${window.Maquiminas.url('pages/condicoes.html')}">Ver todas as condições e políticas ${icon('arrow')}</a>
         </div>
@@ -346,7 +367,11 @@
              <a class="btn btn--dark btn--sm" href="${quoteUrl(product)}">Solicitar ficha técnica</a>
            </div>`;
       const notes = product.observacoes ? `<p class="product-notes"><strong>Observações:</strong> ${esc(product.observacoes)}</p>` : '';
-      specsRoot.innerHTML = list + pending + notes;
+      const eqIds = product.equivalentes || [];
+      const eqNote = eqIds.length
+        ? `<p class="product-notes"><strong>Equivalentes:</strong> se este modelo estiver indisponível, a equipe indica um equipamento equivalente cadastrado — mesma função, não necessariamente a mesma marca.</p>`
+        : '';
+      specsRoot.innerHTML = list + pending + notes + eqNote;
     }
 
     const relatedRoot = document.querySelector('[data-related]');

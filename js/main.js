@@ -41,8 +41,17 @@
       el.href = config.instagram;
     });
     document.querySelectorAll('[data-config-text]').forEach((el) => {
-      const value = config[el.dataset.configText];
+      const value = el.dataset.configText.split('.').reduce((obj, key) => obj && obj[key], config);
       if (value) el.textContent = value;
+    });
+    const cnpj = config.empresa && config.empresa.cnpj;
+    document.querySelectorAll('[data-empresa-cnpj]').forEach((el) => {
+      if (!cnpj) {
+        el.remove();
+        return;
+      }
+      el.hidden = false;
+      el.textContent = el.dataset.empresaCnpj === 'plain' ? cnpj : `CNPJ ${cnpj}`;
     });
     // Canais opcionais: exibidos somente quando configurados.
     document.querySelectorAll('[data-config-link="email"]').forEach((el) => {

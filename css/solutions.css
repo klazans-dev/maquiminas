@@ -90,6 +90,12 @@
 .check-list { display: grid; gap: 12px; }
 .check-list li { display: flex; gap: 12px; align-items: flex-start; font-weight: 500; }
 .check-list svg { width: 20px; height: 20px; flex: none; margin-top: 2px; color: var(--c-accent); }
+.legal-line {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-text);
+}
 
 .editable-hint {
   font-size: 12px;

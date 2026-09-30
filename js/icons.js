@@ -40,7 +40,7 @@
     alert: s('<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h0"/>'),
     door: s('<path d="M5 21V4h10v17M15 6h4v15M3 21h18"/><path d="M12 12h.01"/>'),
     dolly: s('<path d="M5 3h2l3 14"/><circle cx="11" cy="19" r="2"/><path d="M13 18l8-2"/><rect x="11" y="7" width="8" height="7" transform="rotate(-12 15 10.5)"/>'),
-    'no-flip': s('<circle cx="12" cy="12" r="10"/><path d="M5 5l14 14"/><rect x="8.5" y="11.5" width="7" height="6" rx="0.5"/><path d="M7.5 10a5 5 0 019 0"/><path d="M16.5 10l.4-2.3M16.5 10l-2.3-.5"/>'),
+    'no-lay': s('<circle cx="12" cy="12" r="10"/><path d="M5 5l14 14"/><rect x="7" y="10" width="10" height="6" rx="0.5"/><path d="M7 13h10"/>'),
     'no-disassemble': s('<circle cx="12" cy="12" r="10"/><path d="M5 5l14 14"/><path d="M14.5 7.5a2.5 2.5 0 00-3.3 3.1L7.5 14.3l1.9 1.9 3.7-3.7a2.5 2.5 0 003.1-3.3l-1.5 1.5-1.4-.4-.4-1.4z"/>'),
     'no-open': s('<circle cx="12" cy="12" r="10"/><path d="M5 5l14 14"/><path d="M7.5 11h9v6h-9z"/><path d="M7.5 11l1.5-3.5h6L16.5 11"/>')
   };
