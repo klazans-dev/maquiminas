@@ -128,6 +128,7 @@ window.MAQUIMINAS_PRODUCTS = [
     ilustracao: 'assets/illustrations/coccao.svg',
     descricao: 'Forno de câmaras com lastro para assamento direto. Configuração conforme a necessidade de produção.',
     aplicacao: 'Panificação',
+    destaque: true,
     demonstrativo: true
   },
   {
@@ -146,34 +147,6 @@ window.MAQUIMINAS_PRODUCTS = [
     ilustracao: 'assets/illustrations/gastronomia.svg',
     descricao: 'Fritadeira para cozinhas profissionais. Capacidade e alimentação sob consulta.',
     aplicacao: 'Cozinhas profissionais',
-    demonstrativo: true
-  },
-  {
-    id: 'refrigerador-comercial',
-    nome: 'Refrigerador comercial',
-    categoria: 'refrigeracao',
-    ilustracao: 'assets/illustrations/refrigeracao.svg',
-    descricao: 'Equipamento para conservação refrigerada em operações comerciais. Volumes e configurações sob consulta.',
-    aplicacao: 'Conservação e armazenamento',
-    destaque: true,
-    demonstrativo: true
-  },
-  {
-    id: 'balcao-refrigerado',
-    nome: 'Balcão refrigerado',
-    categoria: 'refrigeracao',
-    ilustracao: 'assets/illustrations/refrigeracao.svg',
-    descricao: 'Balcão para exposição e conservação refrigerada. Medidas e temperatura sob consulta.',
-    aplicacao: 'Atendimento e exposição',
-    demonstrativo: true
-  },
-  {
-    id: 'camara-fria',
-    nome: 'Câmara fria',
-    categoria: 'refrigeracao',
-    ilustracao: 'assets/illustrations/refrigeracao.svg',
-    descricao: 'Câmara para armazenamento refrigerado ou congelado. Dimensões conforme o espaço disponível.',
-    aplicacao: 'Estoque refrigerado',
     demonstrativo: true
   },
   {

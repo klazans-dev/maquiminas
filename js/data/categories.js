@@ -29,12 +29,6 @@ window.MAQUIMINAS_CATEGORIES = [
     imagem: 'assets/illustrations/industriais.svg'
   },
   {
-    slug: 'refrigeracao',
-    nome: 'Refrigeração',
-    descricao: 'Conservação e armazenamento para diferentes volumes de operação.',
-    imagem: 'assets/illustrations/refrigeracao.svg'
-  },
-  {
     slug: 'preparacao',
     nome: 'Preparação',
     descricao: 'Equipamentos para processamento e pré-preparo de alimentos.',
