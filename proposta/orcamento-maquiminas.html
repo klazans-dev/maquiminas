@@ -181,9 +181,60 @@
       .sheet { margin: 0; border: 0; max-width: none; padding: 0; }
       .brandbar { margin: 0 0 12px; padding: 10px 0; }
       h2 { break-after: avoid; }
-      .pkg, .card, table, .chart-wrap, .hook, .brandbar { break-inside: avoid; }
+      .pkg, .card, table, .chart-wrap, .hook, .brandbar, .stats { break-inside: avoid; }
+      .extra { break-before: page; }
     }
-    @page { size: A4; margin: 12mm; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: center;
+      background: var(--bg);
+    }
+    .stat b {
+      display: block;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 28px;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat span {
+      display: block;
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .usage {
+      display: flex;
+      height: 14px;
+      background: #e6edf6;
+      margin: 6px 0 4px;
+    }
+    .usage .ok { width: 83.9%; background: #1f7a4a; }
+    .usage .wait { width: 16.1%; background: var(--yellow); }
+    .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+    .dot--ok { background: #1f7a4a; }
+    .dot--wait { background: #c47b00; }
+    .extra {
+      break-before: page;
+      page-break-before: always;
+      padding-top: 2mm;
+    }
+    .extra-kicker {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    table.compact td, table.compact th { padding: 5px 6px; font-size: 10.5px; }
   </style>
 </head>
 <body>
@@ -413,7 +464,105 @@
       <li>Site estático, seguro no front (sem senhas) e preparado para API futura</li>
     </ul>
 
-    <h2>4. Sistema básico — R$ 4.500</h2>
+    <section class="extra" aria-label="Página extra — reunião versus site">
+      <p class="extra-kicker"><span>Callinfo · Proposta MM-2026-0930 · página extra 1</span><span>Reunião × site (gap)</span></p>
+      <h2>4. O que a reunião pediu e o que o MVP já tem</h2>
+      <p class="small">Mesmo recorte do gap analysis: regras faladas na reunião + dados oficiais enviados depois, comparados com o site em 30/09/2026. Pendências vão para os planos B e C ou para ativos que a Maquiminas ainda envia (foto, e-mail, rua).</p>
+
+      <div class="stats">
+        <div class="stat"><b>26</b><span>Itens no ar</span></div>
+        <div class="stat"><b>5</b><span>Aguardando etapa</span></div>
+        <div class="stat"><b>8</b><span>Páginas públicas</span></div>
+        <div class="stat"><b>15</b><span>Itens demonstrativos</span></div>
+      </div>
+
+      <p class="small" style="margin:0"><strong>Cobertura das 31 regras combinadas</strong> · 26 no site · 5 pendentes</p>
+      <div class="usage" role="img" aria-label="26 itens no site e 5 pendentes em 31"><span class="ok"></span><span class="wait"></span></div>
+      <p class="small">Gráfico 4 — barra de cobertura. Verde = aplicado no MVP. Amarelo = foto, endereço, catálogo ERP, AXIA online ou logística na API.</p>
+
+      <div class="chart-wrap" style="margin-top:12px">
+        <svg viewBox="0 0 120 120" width="160" height="160" aria-label="Itens no ar versus pendentes">
+          <title>26 itens no site e 5 pendentes, de 31 regras da reunião e da mensagem institucional</title>
+          <circle cx="60" cy="60" r="40" fill="none" stroke="#1f7a4a" stroke-width="18" stroke-dasharray="210.8 251.33" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="40" fill="none" stroke="#ffc20e" stroke-width="18" stroke-dasharray="40.5 251.33" stroke-dashoffset="-210.8" transform="rotate(-90 60 60)"/>
+          <text x="60" y="54" text-anchor="middle" font-size="9" font-family="Inter" fill="#4f5f74">cobertura</text>
+          <text x="60" y="70" text-anchor="middle" font-size="16" font-weight="700" font-family="Barlow Condensed" fill="#041d3f">84%</text>
+        </svg>
+        <div>
+          <div class="bars" role="img" aria-label="Contagem de páginas e catálogo">
+            <div class="bar-row"><span>Páginas no ar</span><div class="track"><div class="fill" style="width:100%;background:#041d3f"></div></div><strong>8 / 8</strong></div>
+            <div class="bar-row"><span>Categorias (sem frio)</span><div class="track"><div class="fill" style="width:87.5%;background:#0057c8"></div></div><strong>7</strong></div>
+            <div class="bar-row"><span>Catálogo demo</span><div class="track"><div class="fill" style="width:100%;background:#ffc20e"></div></div><strong>15</strong></div>
+            <div class="bar-row"><span>CNPJ no rodapé</span><div class="track"><div class="fill" style="width:100%;background:#1f7a4a"></div></div><strong>8 / 8</strong></div>
+          </div>
+          <p class="small" style="margin-top:8px">Gráfico 5 — pizza: 26 no ar (verde) e 5 pendentes (amarelo), base 31. Gráfico 6 — páginas, categorias, demonstrativos e CNPJ. Fonte: reunião + site MVP · 30/09/2026.</p>
+          <div class="legend">
+            <span><i class="sw" style="background:#1f7a4a"></i>No site (26)</span>
+            <span><i class="sw" style="background:#ffc20e"></i>Pendente (5)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="extra" aria-label="Página extra — tabelas da reunião">
+      <p class="extra-kicker"><span>Callinfo · Proposta MM-2026-0930 · página extra 2</span><span>Detalhe reunião × site</span></p>
+      <h2>4.1 Reunião comercial — o que entrou no MVP</h2>
+      <table class="compact">
+        <thead>
+          <tr>
+            <th>Combinado na reunião</th>
+            <th>Onde está no site</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>50% PIX + boleto após análise e contrato</td><td>Condições, home, AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Sem cartão no site</td><td>Config e textos de pagamento</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Entrada na entrega só no Sudeste, entrega dedicada</td><td>Condições + AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Frete grátis 300 km, sentido Sudeste</td><td>Home, mapa, Condições, AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Frete fora do raio por conta do comprador</td><td>Condições + AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Não citar ferramenta interna de transporte</td><td>Nenhuma ocorrência no site</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Carga na indústria; descarga e acesso no comprador</td><td>Condições + AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Montado; desmontado com montador até 300 km</td><td>Condições + orçamento</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Receber desmontado perde garantia</td><td>Condições, orçamento, AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Garantia 12 meses / 90 dias</td><td>Condições + AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Assistência 350 km</td><td>Condições + AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Não virar, não deitar, não desmontar, não abrir</td><td>Condições, ícones, AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Voltagem 220 V ou 380 V obrigatória</td><td>Campo obrigatório no orçamento</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Entrega Brasil; indústria em Rosário da Limeira (MG)</td><td>Mapa e config</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>WhatsApp (32) 98481-8603</td><td>Header, rodapé, wa.me</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>AXIA não inventa preço, prazo, spec ou frete</td><td>Preview + respostas só do config</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Parcelas e R$/km só no orçamento humano</td><td>Textos remetem ao orçamento</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4.2 Dados oficiais e o que ainda falta</h2>
+      <table class="compact">
+        <thead>
+          <tr>
+            <th>Dado / combinado</th>
+            <th>Onde está</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CNPJ 02.879.806/0001-27</td><td>Sobre, Contato, 8 rodapés, JSON-LD, AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Origem Padaria Vovó Odete · quase 30 anos</td><td>Sobre + AXIA</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Fábrica, estoque, NF, máquinas testadas, atendimento humanizado</td><td>Sobre</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Instagram @maquiminasequipamentos</td><td>Home, Sobre, Contato</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Sem refrigeração / freezer / câmara fria</td><td>Catálogo e categorias</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Versão MVP + botão da proposta Callinfo</td><td>Faixa do site e rodapé</td><td><span class="dot dot--ok"></span>No ar</td></tr>
+          <tr><td>Catálogo real do ERP Callinfo</td><td>Ainda demonstrativo</td><td><span class="dot dot--wait"></span>Plano B/C</td></tr>
+          <tr><td>AXIA online (API)</td><td>Hoje só preview</td><td><span class="dot dot--wait"></span>Plano C</td></tr>
+          <tr><td>Cotação de transporte no fluxo</td><td>Texto de política; sem API</td><td><span class="dot dot--wait"></span>Plano C</td></tr>
+          <tr><td>Fotos reais das máquinas</td><td>Desenho técnico no card</td><td><span class="dot dot--wait"></span>Ativo Maquiminas</td></tr>
+          <tr><td>E-mail, telefone, horário, rua</td><td>Campos vazios no config</td><td><span class="dot dot--wait"></span>Ativo Maquiminas</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Leitura: para o comprador, as regras da reunião já estão no MVP. O que falta é sistema (planos B e C) ou arquivo que só a Maquiminas envia (foto e endereço).</p>
+    </section>
+
+    <h2>5. Sistema básico — R$ 4.500</h2>
     <table>
       <thead>
         <tr><th>Item</th><th>Entrega</th></tr>
@@ -427,7 +576,7 @@
       </tbody>
     </table>
 
-    <h2>5. Sistema completo — R$ 8.000</h2>
+    <h2>6. Sistema completo — R$ 8.000</h2>
     <p class="small">Inclui todo o sistema básico, mais:</p>
     <table>
       <thead>
@@ -441,7 +590,7 @@
       </tbody>
     </table>
 
-    <h2>6. Fora deste orçamento</h2>
+    <h2>7. Fora deste orçamento</h2>
     <ul class="checks">
       <li>Domínio, hospedagem do site estático e anúncios pagos</li>
       <li>Produção fotográfica (vocês enviam as fotos dos equipamentos)</li>
@@ -450,7 +599,7 @@
     </ul>
     <p class="small">A mensalidade do plano escolhido já cobre o sistema correspondente e o suporte. Não há segunda mensalidade Callinfo nesta tabela de parceiro.</p>
 
-    <h2>7. Como seguir</h2>
+    <h2>8. Como seguir</h2>
     <p>1. Escolher o plano <strong>A</strong>, <strong>B</strong> ou <strong>C</strong> (implantação + mensalidade com suporte).<br>
     2. Confirmar esta proposta por escrito (e-mail ou WhatsApp), na condição Cliente Parceiro — indicação família.<br>
     3. Site (A) já está entregue. B e C começam após o aceite e o acesso de integração ao Callinfo. A mensalidade inicia na ativação do plano.</p>
@@ -464,7 +613,7 @@
     </div>
 
     <p class="foot-note">
-      Valores em reais, tabela Cliente Parceiro — indicação família. O sistema completo não se soma ao básico; a mensalidade é a do plano contratado e inclui suporte. Gráficos e projeção de 12 meses elaborados a partir desta tabela em 30/09/2026. Documento para impressão em A4 (Salvar como PDF no navegador).
+      Valores em reais, tabela Cliente Parceiro — indicação família. Páginas extras 1 e 2: gap reunião × site (31 regras, 26 no ar, 5 pendentes). Mensalidade é a do plano contratado e inclui suporte. 30/09/2026.
     </p>
   </article>
 </body>
