@@ -139,11 +139,46 @@
     });
   }
 
+  function setupMvpNotice() {
+    if (/orcamento-maquiminas\.html$/.test(window.location.pathname)) return;
+    const proposta = url('proposta/orcamento-maquiminas.html');
+    const headerInner = document.querySelector('.site-header__inner');
+    if (headerInner && !headerInner.querySelector('.mvp-badge')) {
+      const badge = document.createElement('span');
+      badge.className = 'mvp-badge';
+      badge.textContent = 'Versão MVP';
+      const brand = headerInner.querySelector('.brand');
+      if (brand) brand.insertAdjacentElement('afterend', badge);
+      else headerInner.prepend(badge);
+    }
+    const header = document.querySelector('.site-header');
+    if (header && !document.querySelector('.mvp-bar')) {
+      const bar = document.createElement('div');
+      bar.className = 'mvp-bar';
+      bar.innerHTML = `
+        <div class="container mvp-bar__inner">
+          <p>Este site está em <strong>versão MVP</strong>.</p>
+          <a class="btn btn--sm" href="${proposta}" aria-label="Visualizar proposta para adquirir o projeto">Visualizar proposta</a>
+        </div>`;
+      header.insertAdjacentElement('afterend', bar);
+    }
+    const bottom = document.querySelector('.footer-bottom');
+    if (bottom && !bottom.querySelector('[data-mvp-proposta]')) {
+      const a = document.createElement('a');
+      a.href = proposta;
+      a.dataset.mvpProposta = '1';
+      a.setAttribute('aria-label', 'Visualizar proposta para adquirir o projeto');
+      a.textContent = 'Visualizar proposta';
+      bottom.appendChild(a);
+    }
+  }
+
   window.Maquiminas = Object.freeze({ root, url, escapeHtml, bindWhatsApp, observeReveal });
 
   window.MaquiminasIcons.render();
   bindConfigLinks();
   setupMenu();
+  setupMvpNotice();
   setupFloating();
   setupReveal();
   setYear();

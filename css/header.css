@@ -203,3 +203,40 @@
   .brand__name { font-size: 21px; }
   .brand__tag { font-size: 8.5px; letter-spacing: 0.36em; }
 }
+
+.mvp-badge {
+  flex: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--c-yellow);
+  color: var(--c-on-yellow);
+  padding: 5px 8px;
+  line-height: 1;
+}
+.mvp-bar {
+  background: var(--c-graphite);
+  color: var(--c-text-dark);
+  border-bottom: 1px solid var(--c-line-dark);
+}
+.mvp-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  min-height: 52px;
+  padding-block: 8px;
+}
+.mvp-bar p { margin: 0; font-size: 14px; }
+.mvp-bar .btn {
+  background: var(--c-yellow);
+  color: var(--c-on-yellow);
+  border: 0;
+}
+.mvp-bar .btn:hover { background: var(--c-yellow-hover); color: var(--c-on-yellow); }
+
+@media (max-width: 1080px) {
+  .mvp-badge { display: none; }
+}

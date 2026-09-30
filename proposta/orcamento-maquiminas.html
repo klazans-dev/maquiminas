@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proposta comercial | Site e sistemas — Maquiminas Equipamentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --ink: #041d3f;
+      --steel: #123a70;
+      --accent: #0057c8;
+      --yellow: #ffc20e;
+      --on-yellow: #06254f;
+      --bg: #f2f5f9;
+      --line: #dbe3ed;
+      --muted: #4f5f74;
+      --text: #0d1b2e;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 11.5px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.45;
+    }
+    .sheet {
+      max-width: 210mm;
+      margin: 24px auto 80px;
+      background: var(--white);
+      padding: 18mm 16mm 16mm;
+      border: 1px solid var(--line);
+    }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      max-width: 210mm;
+      margin: 16px auto 0;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: #c6d4e8;
+      font-size: 13px;
+    }
+    .toolbar strong { color: var(--yellow); }
+    .toolbar button {
+      border: 0;
+      background: var(--yellow);
+      color: var(--on-yellow);
+      font-weight: 700;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    h1, h2, h3 { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: 0.02em; margin: 0; }
+    h1 { font-size: 32px; line-height: 0.95; color: var(--ink); }
+    h2 { font-size: 18px; color: var(--ink); margin: 22px 0 10px; border-bottom: 2px solid var(--yellow); padding-bottom: 4px; }
+    h3 { font-size: 14px; color: var(--steel); margin: 0 0 6px; }
+    p { margin: 0 0 8px; }
+    .muted { color: var(--muted); }
+    .small { font-size: 11px; color: var(--muted); }
+    .brandbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #000;
+      color: #9ad4ff;
+      margin: -18mm -16mm 16px;
+      padding: 14px 16mm;
+    }
+    .logo-callinfo { height: 52px; width: auto; display: block; }
+    .brandbar .who { font-size: 11px; text-align: right; line-height: 1.35; }
+    .brandbar .who strong { display: block; color: #fff; font-size: 13px; }
+    .head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+      padding-bottom: 14px;
+      border-bottom: 4px solid var(--ink);
+    }
+    .logo { height: 52px; width: auto; }
+    .meta { text-align: right; font-size: 11px; color: var(--muted); }
+    .meta strong { display: block; color: var(--ink); font-size: 13px; }
+    .hook {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      align-items: center;
+      background: var(--ink);
+      color: #c6d4e8;
+      padding: 14px 16px;
+      margin: 14px 0 4px;
+    }
+    .hook-mark {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #06244c;
+      flex: none;
+    }
+    .hook-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hook h2 { color: #fff; border: 0; margin: 6px 0 6px; padding: 0; font-size: 22px; }
+    .hook p { margin: 0; }
+    .hook .tag { background: var(--yellow); }
+    .parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0 6px;
+    }
+    .sign img { height: 36px; display: block; margin-bottom: 8px; }
+    .hook, .brandbar { break-inside: avoid; }
+    .card {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      background: var(--bg);
+    }
+    .kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    ul.checks { margin: 0; padding: 0; list-style: none; }
+    ul.checks li { padding: 3px 0 3px 16px; position: relative; }
+    ul.checks li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; background: var(--yellow); }
+    table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+    th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--ink); color: #fff; font-weight: 600; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+    td.num, th.num { text-align: right; white-space: nowrap; }
+    tfoot td { font-weight: 700; background: #fff8dd; border-bottom: 0; }
+    .pkg {
+      border: 1px solid var(--line);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 100%;
+    }
+    .pkg--rec { border: 2px solid var(--ink); background: #f7f9fc; }
+    .pkg .price { font-family: "Barlow Condensed", sans-serif; font-size: 28px; font-weight: 700; color: var(--ink); }
+    .pkg .month { font-size: 13px; font-weight: 700; color: var(--accent); }
+    .partner {
+      background: #fff8dd;
+      border: 1px solid var(--yellow);
+      padding: 10px 12px;
+      margin: 12px 0 0;
+      font-size: 12px;
+    }
+    .partner strong { color: var(--on-yellow); }
+    .fill--ma { background: var(--ink); width: 31.25%; }
+    .fill--mb { background: var(--accent); width: 62.5%; }
+    .fill--mc { background: var(--yellow); width: 100%; }
+    .tag { display: inline-block; background: var(--yellow); color: var(--on-yellow); font-size: 10px; font-weight: 700; padding: 2px 7px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .chart-wrap { display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: center; }
+    .bars { display: grid; gap: 8px; }
+    .bar-row { display: grid; grid-template-columns: 140px 1fr 72px; gap: 8px; align-items: center; font-size: 11px; }
+    .track { height: 14px; background: #e6edf6; }
+    .fill { height: 100%; background: var(--accent); }
+    .fill--site { background: var(--ink); width: 18.4%; }
+    .fill--b { background: var(--accent); width: 64.3%; }
+    .fill--c { background: var(--yellow); width: 100%; }
+    .legend { display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: 11px; margin-top: 8px; }
+    .sw { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; }
+    .foot-note { margin-top: 18px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 10.5px; color: var(--muted); }
+    .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
+    .sign p { border-top: 1px solid var(--ink); padding-top: 6px; margin-top: 36px; font-size: 11px; }
+    @media print {
+      html { font-size: 10.5px; }
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .sheet { margin: 0; border: 0; max-width: none; padding: 0; }
+      .brandbar { margin: 0 0 12px; padding: 10px 0; }
+      h2 { break-after: avoid; }
+      .pkg, .card, table, .chart-wrap, .hook, .brandbar { break-inside: avoid; }
+    }
+    @page { size: A4; margin: 12mm; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <span>Proposta MM-2026-0930 · <strong>Ctrl+P</strong> → Destino: Salvar como PDF · A4</span>
+    <button type="button" onclick="window.print()">Gerar PDF</button>
+  </div>
+
+  <article class="sheet">
+    <div class="brandbar">
+      <img class="logo-callinfo" src="marcas/callinfo.png" alt="Callinfo Tecnologia">
+      <div class="who">
+        <strong>Callinfo Tecnologia</strong>
+        Emitente desta proposta<br>
+        ERP, site e assistente AXIA
+      </div>
+    </div>
+
+    <header class="head">
+      <div>
+        <p class="kicker">Proposta comercial</p>
+        <h1>Site institucional e sistemas</h1>
+        <p class="muted">Para Maquiminas Equipamentos. Escopo do que já foi entregue e investimento das próximas etapas.</p>
+      </div>
+      <div class="meta">
+        <img class="logo" src="../assets/images/logo-maquiminas.webp" alt="Maquiminas Equipamentos">
+        <strong>Proposta n.º MM-2026-0930</strong>
+        Data: 30/09/2026<br>
+        Validade: 15 dias (até 15/10/2026)<br>
+        Moeda: Real (BRL)<br>
+        Tabela: Cliente Parceiro — indicação família
+      </div>
+    </header>
+
+    <aside class="hook" aria-label="AXIA, função gancho">
+      <div class="hook-mark">
+        <img src="marcas/axia.jpg" alt="AXIA">
+      </div>
+      <div>
+        <span class="tag">Função gancho</span>
+        <h2>AXIA</h2>
+        <p>A AXIA já aparece no site como assistente da Maquiminas: saúda o visitante, encaminha para orçamento, catálogo ou especialista e só fala o que está nas regras oficiais — sem inventar preço, prazo ou especificação.</p>
+        <p style="margin-top:8px">É o gancho comercial do projeto: o cliente sente atendimento imediato. No site (R$ 1.800) ela opera em <strong style="color:#fff">preview</strong>. No sistema completo (R$ 8.000) ela fica <strong style="color:#ffc20e">online</strong>, lendo o catálogo do Callinfo e as políticas reais.</p>
+      </div>
+    </aside>
+
+    <div class="parties">
+      <div class="card">
+        <p class="kicker">Cliente</p>
+        <h3>Maquiminas Equipamentos</h3>
+        <p>CNPJ 02.879.806/0001-27<br>Rosário da Limeira / MG<br>Origem: Padaria Vovó Odete<br>WhatsApp (32) 98481-8603 · @maquiminasequipamentos</p>
+      </div>
+      <div class="card">
+        <p class="kicker">Emitente</p>
+        <h3>Callinfo Tecnologia</h3>
+        <p>Site institucional, ERP Callinfo (Área do Cliente) e assistente AXIA.<br>Integrações sem login próprio no site e sem chaves no navegador.</p>
+      </div>
+    </div>
+
+    <div class="partner">
+      <span class="tag">Cliente parceiro</span>
+      <p style="margin:8px 0 0"><strong>Indicação família.</strong> Implantação e mensalidades desta proposta são valores de cliente parceiro. A mensalidade inclui o sistema do plano escolhido e o suporte Callinfo / AXIA.</p>
+    </div>
+
+    <h2>1. Investimento</h2>
+    <div class="grid-3">
+      <div class="pkg">
+        <span class="tag">Entrega atual</span>
+        <h3>Site</h3>
+        <p class="price">R$ 1.800</p>
+        <p class="month">Mensalidade plano A · R$ 250,00</p>
+        <p class="small">Site institucional completo, no ar, com políticas oficiais, catálogo demonstrativo, AXIA em modo preview e Área do Cliente no Callinfo. Mensalidade com suporte.</p>
+      </div>
+      <div class="pkg">
+        <span class="tag">Próxima etapa</span>
+        <h3>Sistema básico</h3>
+        <p class="price">R$ 4.500</p>
+        <p class="month">Mensalidade plano B · R$ 500,00</p>
+        <p class="small">Catálogo e orçamentos ligados ao ERP. Produtos reais no lugar dos demonstrativos. Leads no Callinfo. Mensalidade com suporte.</p>
+      </div>
+      <div class="pkg pkg--rec">
+        <span class="tag">Recomendado</span>
+        <h3>Sistema completo</h3>
+        <p class="price">R$ 8.000</p>
+        <p class="month">Mensalidade plano C · R$ 800,00</p>
+        <p class="small">Inclui o sistema básico, mais AXIA online e cotação de transporte no fluxo de orçamento. Mensalidade com suporte.</p>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:10px">O sistema completo <strong>substitui</strong> o básico (não soma os dois). O site é sempre o primeiro item. Mensalidades não se acumulam: vale a do plano contratado.</p>
+
+    <table style="margin-top:10px">
+      <thead>
+        <tr>
+          <th>Plano</th>
+          <th>O que entra</th>
+          <th class="num">Implantação</th>
+          <th class="num">Mensalidade c/ suporte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A — Site</td>
+          <td>Entrega já realizada + suporte do site e AXIA preview</td>
+          <td class="num">R$ 1.800,00</td>
+          <td class="num">R$ 250,00 / mês</td>
+        </tr>
+        <tr>
+          <td>B — Site + sistema básico</td>
+          <td>Site + ERP de catálogo e leads + suporte</td>
+          <td class="num">R$ 6.300,00</td>
+          <td class="num">R$ 500,00 / mês</td>
+        </tr>
+        <tr>
+          <td>C — Site + sistema completo</td>
+          <td>Site + básico + AXIA online + logística + suporte</td>
+          <td class="num">R$ 9.800,00</td>
+          <td class="num">R$ 800,00 / mês</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Comparativo de investimento</h2>
+    <div class="chart-wrap">
+      <svg viewBox="0 0 120 120" width="170" height="170" aria-label="Participação de cada linha de investimento">
+        <title>Participação das linhas de preço (site, básico e completo) sobre a soma das três tabelas</title>
+        <!-- soma 1800+4500+8000 = 14300; circunferência r=40 → 251.33 -->
+        <circle cx="60" cy="60" r="40" fill="none" stroke="#041d3f" stroke-width="18" stroke-dasharray="31.6 251.33" transform="rotate(-90 60 60)"/>
+        <circle cx="60" cy="60" r="40" fill="none" stroke="#0057c8" stroke-width="18" stroke-dasharray="79.1 251.33" stroke-dashoffset="-31.6" transform="rotate(-90 60 60)"/>
+        <circle cx="60" cy="60" r="40" fill="none" stroke="#ffc20e" stroke-width="18" stroke-dasharray="140.6 251.33" stroke-dashoffset="-110.7" transform="rotate(-90 60 60)"/>
+        <text x="60" y="56" text-anchor="middle" font-size="9" font-family="Inter" fill="#4f5f74">Linhas</text>
+        <text x="60" y="68" text-anchor="middle" font-size="11" font-weight="700" font-family="Barlow Condensed" fill="#041d3f">TABELA</text>
+      </svg>
+      <div>
+        <p class="small" style="margin-bottom:10px">Gráfico 1 — participação de cada linha da tabela (R$ 1.800 + R$ 4.500 + R$ 8.000 = R$ 14.300) apenas para visualizar o peso relativo dos pacotes. A contratação real usa as opções A, B ou C abaixo.</p>
+        <div class="bars" role="img" aria-label="Investimento total por opção comercial em reais">
+          <div class="bar-row"><span>A · Site</span><div class="track"><div class="fill fill--site"></div></div><strong>R$ 1.800</strong></div>
+          <div class="bar-row"><span>B · Site + básico</span><div class="track"><div class="fill fill--b"></div></div><strong>R$ 6.300</strong></div>
+          <div class="bar-row"><span>C · Site + completo</span><div class="track"><div class="fill fill--c"></div></div><strong>R$ 9.800</strong></div>
+        </div>
+        <p class="small" style="margin-top:8px">Gráfico 2 — implantação por plano. Barras proporcionais ao plano C (R$ 9.800 = 100%). Fonte: esta proposta · 30/09/2026.</p>
+        <div class="bars" style="margin-top:14px" role="img" aria-label="Mensalidade com suporte por plano em reais">
+          <div class="bar-row"><span>A · mensal</span><div class="track"><div class="fill fill--ma"></div></div><strong>R$ 250</strong></div>
+          <div class="bar-row"><span>B · mensal</span><div class="track"><div class="fill fill--mb"></div></div><strong>R$ 500</strong></div>
+          <div class="bar-row"><span>C · mensal</span><div class="track"><div class="fill fill--mc"></div></div><strong>R$ 800</strong></div>
+        </div>
+        <p class="small" style="margin-top:8px">Gráfico 3 — mensalidade com suporte (cliente parceiro). Barras proporcionais ao plano C (R$ 800 = 100%).</p>
+        <div class="legend">
+          <span><i class="sw" style="background:#041d3f"></i>Site R$ 1.800 · mensal R$ 250</span>
+          <span><i class="sw" style="background:#0057c8"></i>Básico R$ 4.500 · mensal R$ 500</span>
+          <span><i class="sw" style="background:#ffc20e"></i>Completo R$ 8.000 · mensal R$ 800</span>
+        </div>
+      </div>
+    </div>
+
+    <table style="margin-top:12px">
+      <thead>
+        <tr>
+          <th>Plano</th>
+          <th class="num">Implantação</th>
+          <th class="num">12 mensalidades</th>
+          <th class="num">Projeção 12 meses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A</td>
+          <td class="num">R$ 1.800,00</td>
+          <td class="num">R$ 3.000,00</td>
+          <td class="num">R$ 4.800,00</td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td class="num">R$ 6.300,00</td>
+          <td class="num">R$ 6.000,00</td>
+          <td class="num">R$ 12.300,00</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td class="num">R$ 9.800,00</td>
+          <td class="num">R$ 9.600,00</td>
+          <td class="num">R$ 19.400,00</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="small">Tabela de projeção: implantação + 12 mensalidades com suporte. Não é um pacote anual fechado — a mensalidade é cobrada mês a mês.</p>
+
+    <h2>3. O que já foi feito no site (R$ 1.800)</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Páginas</h3>
+        <ul class="checks">
+          <li>Início — categorias, destaques, mapa Brasil, políticas resumidas</li>
+          <li>Equipamentos — busca, filtros e catálogo</li>
+          <li>Produto — ficha, condições e orçamento</li>
+          <li>Soluções — orientação, montagem, instalação, logística</li>
+          <li>Condições e políticas — regras oficiais de compra</li>
+          <li>Sobre nós — Padaria Vovó Odete, CNPJ, transparência</li>
+          <li>Contato e orçamento — WhatsApp, voltagem obrigatória, aceite das políticas</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Regras comerciais no ar</h3>
+        <ul class="checks">
+          <li>50% de entrada no PIX e restante no boleto após análise e contrato</li>
+          <li>Sem cartão no site</li>
+          <li>Entrada na entrega só no Sudeste e em entrega dedicada</li>
+          <li>Frete grátis 300 km da indústria (Rosário da Limeira/MG), sentido Sudeste</li>
+          <li>Carga na indústria; descarga e acesso por conta do comprador</li>
+          <li>Envio montado; desmontado com montador até 300 km; desmontado perde garantia</li>
+          <li>Garantia 12 meses (novo) e 90 dias (semi-novo/reformado)</li>
+          <li>Assistência no raio de 350 km</li>
+          <li>Não virar, não deitar, não desmontar, não abrir</li>
+          <li>Voltagem 220 V ou 380 V obrigatória no orçamento</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:12px">Confiança institucional e catálogo</h3>
+    <ul class="checks">
+      <li>CNPJ 02.879.806/0001-27 no Sobre, Contato, rodapé e dados estruturados</li>
+      <li>Instagram oficial @maquiminasequipamentos</li>
+      <li>AXIA em preview: responde só o que está no config (não inventa preço, prazo ou spec)</li>
+      <li>Área do Cliente = Callinfo existente (sem painel local)</li>
+      <li>Catálogo demonstrativo de padaria/confeitaria, <strong>sem refrigeração, freezer ou câmara fria</strong></li>
+      <li>15 tipos ilustrativos com desenho técnico; fotos entram depois sem trocar o layout do card</li>
+      <li>Site estático, seguro no front (sem senhas) e preparado para API futura</li>
+    </ul>
+
+    <h2>4. Sistema básico — R$ 4.500</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Entrega</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Backend público de leitura/escrita de leads</td><td>Orçamentos e contatos do site entram no ERP Callinfo</td></tr>
+        <tr><td>Catálogo oficial</td><td>Produtos cadastrados no Callinfo aparecem na home e em Equipamentos; demonstrativos saem do ar</td></tr>
+        <tr><td>Fotos</td><td>Galeria nas fichas; card mantém o desenho até vocês definirem foto no card</td></tr>
+        <tr><td>Condição e equivalentes</td><td>Novo / semi-novo / reformado e indicação de equivalente quando o modelo faltar</td></tr>
+        <tr><td>Segurança</td><td>Nenhuma chave do ERP no navegador; site só chama URL pública</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5. Sistema completo — R$ 8.000</h2>
+    <p class="small">Inclui todo o sistema básico, mais:</p>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Entrega</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>AXIA online</td><td>Assistente passa a consultar catálogo e políticas oficiais via API; continua sem inventar valor de máquina ou de frete</td></tr>
+        <tr><td>Logística no orçamento</td><td>Cotação de transporte a partir de origem, destino, peso e dimensões, informada na proposta ao cliente final</td></tr>
+        <tr><td>Site comercial limpo</td><td>Nenhuma marca de ferramenta interna de frete exposta ao comprador</td></tr>
+        <tr><td>Jornada fechada</td><td>Escolha do equipamento → voltagem e destino → lead no ERP → retorno humano ou assistido</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6. Fora deste orçamento</h2>
+    <ul class="checks">
+      <li>Domínio, hospedagem do site estático e anúncios pagos</li>
+      <li>Produção fotográfica (vocês enviam as fotos dos equipamentos)</li>
+      <li>Cadastro do mix real no ERP — feito pela Maquiminas no Callinfo</li>
+      <li>E-mail, telefone, horário e endereço de rua, quando forem informados, entram no site sem custo de pacote extra</li>
+    </ul>
+    <p class="small">A mensalidade do plano escolhido já cobre o sistema correspondente e o suporte. Não há segunda mensalidade Callinfo nesta tabela de parceiro.</p>
+
+    <h2>7. Como seguir</h2>
+    <p>1. Escolher o plano <strong>A</strong>, <strong>B</strong> ou <strong>C</strong> (implantação + mensalidade com suporte).<br>
+    2. Confirmar esta proposta por escrito (e-mail ou WhatsApp), na condição Cliente Parceiro — indicação família.<br>
+    3. Site (A) já está entregue. B e C começam após o aceite e o acesso de integração ao Callinfo. A mensalidade inicia na ativação do plano.</p>
+
+    <div class="sign">
+      <p>Maquiminas Equipamentos<br><span class="small">Aceite da proposta MM-2026-0930</span></p>
+      <p>
+        <img src="marcas/callinfo.png" alt="Callinfo Tecnologia" style="height:40px;background:#000;padding:6px 10px">
+        Callinfo Tecnologia<br><span class="small">Site, ERP e AXIA</span>
+      </p>
+    </div>
+
+    <p class="foot-note">
+      Valores em reais, tabela Cliente Parceiro — indicação família. O sistema completo não se soma ao básico; a mensalidade é a do plano contratado e inclui suporte. Gráficos e projeção de 12 meses elaborados a partir desta tabela em 30/09/2026. Documento para impressão em A4 (Salvar como PDF no navegador).
+    </p>
+  </article>
+</body>
+</html>
