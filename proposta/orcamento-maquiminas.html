@@ -121,7 +121,29 @@
       margin: 14px 0 6px;
     }
     .sign img { height: 36px; display: block; margin-bottom: 8px; }
-    .hook, .brandbar { break-inside: avoid; }
+    .pix {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 14px;
+      align-items: start;
+      margin-top: 10px;
+    }
+    .pix-key {
+      font-family: ui-monospace, Consolas, "Courier New", monospace;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      background: #fff;
+      border: 1px dashed var(--accent);
+      padding: 10px 12px;
+      word-break: break-all;
+    }
+    .pix img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      display: block;
+    }
     .card {
       border: 1px solid var(--line);
       padding: 10px 12px;
@@ -181,7 +203,7 @@
       .sheet { margin: 0; border: 0; max-width: none; padding: 0; }
       .brandbar { margin: 0 0 12px; padding: 10px 0; }
       h2 { break-after: avoid; }
-      .pkg, .card, table, .chart-wrap, .hook, .brandbar, .stats { break-inside: avoid; }
+      .pix, .pkg, .card, table, .chart-wrap, .hook, .brandbar, .stats { break-inside: avoid; }
       .extra { break-before: page; }
     }
     .stats {
@@ -290,7 +312,9 @@
       <div class="card">
         <p class="kicker">Emitente</p>
         <h3>Callinfo Tecnologia</h3>
-        <p>Site institucional, ERP Callinfo (Área do Cliente) e assistente AXIA.<br>Integrações sem login próprio no site e sem chaves no navegador.</p>
+        <p>Site institucional, ERP Callinfo (Área do Cliente) e assistente AXIA.<br>
+        PIX (CNPJ): <strong>28044529000126</strong><br>
+        Alexandre Calazans dos Santos · CNPJ 28.044.529/0001-26</p>
       </div>
     </div>
 
@@ -599,10 +623,29 @@
     </ul>
     <p class="small">A mensalidade do plano escolhido já cobre o sistema correspondente e o suporte. Não há segunda mensalidade Callinfo nesta tabela de parceiro.</p>
 
-    <h2>8. Como seguir</h2>
+    <h2>8. Pagamento — PIX</h2>
+    <p>Chave PIX tipo <strong>CNPJ</strong>. Copie o número ou escaneie o QR da cobrança do site (Plano A · R$ 1.800,00 · vencimento 05/10/2026). Planos B e C usam a mesma chave, no valor da implantação escolhida.</p>
+    <div class="pix">
+      <div>
+        <p class="kicker">Chave PIX · CNPJ</p>
+        <p class="pix-key">28044529000126</p>
+        <p><strong>Beneficiário:</strong> Alexandre Calazans dos Santos<br>
+        <strong>CNPJ:</strong> 28.044.529/0001-26<br>
+        <strong>Descrição da cobrança anexa:</strong> Site Maquiminas<br>
+        <strong>Valor (Plano A):</strong> R$ 1.800,00<br>
+        <strong>Vencimento:</strong> 05/10/2026</p>
+        <p class="small">Sem multa, juros ou desconto nesta cobrança. Emissão 30/09/2026.</p>
+      </div>
+      <div>
+        <p class="kicker">QR Code PIX</p>
+        <img src="../Public/pix.jpeg" alt="QR Code PIX da cobrança do site Maquiminas, R$ 1.800,00, vencimento 05/10/2026" width="720" height="540">
+      </div>
+    </div>
+
+    <h2>9. Como seguir</h2>
     <p>1. Escolher o plano <strong>A</strong>, <strong>B</strong> ou <strong>C</strong> (implantação + mensalidade com suporte).<br>
-    2. Confirmar esta proposta por escrito (e-mail ou WhatsApp), na condição Cliente Parceiro — indicação família.<br>
-    3. Site (A) já está entregue. B e C começam após o aceite e o acesso de integração ao Callinfo. A mensalidade inicia na ativação do plano.</p>
+    2. Confirmar esta proposta por escrito e pagar a implantação via PIX (chave CNPJ <strong>28044529000126</strong> ou QR desta seção).<br>
+    3. Site (A) já está entregue. B e C começam após o aceite, o PIX da implantação e o acesso de integração ao Callinfo. A mensalidade inicia na ativação do plano.</p>
 
     <div class="sign">
       <p>Maquiminas Equipamentos<br><span class="small">Aceite da proposta MM-2026-0930</span></p>
